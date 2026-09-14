@@ -1,0 +1,108 @@
+<section class="hero">
+  <div class="hero-content">
+
+    <p class="greeting">
+      Hola, soy
+    </p>
+
+    <h1>
+      José Alsola
+    </h1>
+
+    <h2>
+      Desarrollador de Software
+    </h2>
+
+    <p class="description">
+      Desarrollo soluciones de software con especial interés
+      en aplicaciones móviles, Android y tecnologías modernas.
+    </p>
+
+    <div class="actions">
+
+      <a
+        class="primary-button"
+        href="#projects"
+      >
+        Ver proyectos
+      </a>
+
+      <a
+        class="secondary-button"
+        href="#contact"
+      >
+        Contactarme
+      </a>
+
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .hero {
+    min-height: 80vh;
+
+    display: flex;
+    align-items: center;
+  }
+
+  .hero-content {
+    max-width: 1100px;
+    width: 100%;
+
+    margin: 0 auto;
+    padding: 4rem 2rem;
+  }
+
+  .greeting {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  h1 {
+    font-size: clamp(3rem, 8vw, 5rem);
+    margin: 0;
+  }
+
+  h2 {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    font-weight: 400;
+
+    margin-top: 0.75rem;
+  }
+
+  .description {
+    max-width: 650px;
+
+    font-size: 1.15rem;
+    line-height: 1.7;
+
+    margin-top: 2rem;
+  }
+
+  .actions {
+    display: flex;
+    gap: 1rem;
+
+    margin-top: 2rem;
+  }
+
+  .actions a {
+    padding: 0.9rem 1.4rem;
+
+    border-radius: 8px;
+
+    text-decoration: none;
+  }
+
+  .primary-button {
+    background: #111827;
+    color: white;
+  }
+
+  .secondary-button {
+    border: 1px solid #111827;
+    color: #111827;
+  }
+</style>

@@ -1,22 +1,26 @@
-## Development
+# AGENTS.md
 
-When starting the dev server, use background mode:
+## Proyecto
 
-```
-astro dev --background
-```
+Este proyecto es un portafolio personal desarrollado con Astro.
 
-Manage the background server with `astro dev stop`, `astro dev status`, and `astro dev logs`.
+## Stack
 
-## Documentation
+- Astro
+- TypeScript
+- CSS
+- Git
+- GitHub Pages
 
-Full documentation: https://docs.astro.build
+## Reglas
 
-Consult these guides before working on related tasks:
-
-- [Adding pages, dynamic routes, or middleware](https://docs.astro.build/en/guides/routing/)
-- [Working with Astro components](https://docs.astro.build/en/basics/astro-components/)
-- [Using React, Vue, Svelte, or other framework components](https://docs.astro.build/en/guides/framework-components/)
-- [Adding or managing content](https://docs.astro.build/en/guides/content-collections/)
-- [Adding styles or using Tailwind](https://docs.astro.build/en/guides/styling/)
-- [Supporting multiple languages](https://docs.astro.build/en/guides/internationalization/)
+- Mantener el código simple y legible.
+- Usar componentes `.astro` por defecto.
+- No agregar React, Vue o Svelte sin una razón clara.
+- No agregar dependencias nuevas sin autorización.
+- Mantener diseño responsive y accesible.
+- Usar HTML semántico.
+- Evitar duplicación de código.
+- Mantener componentes pequeños.
+- Ejecutar `npm run build` después de cambios importantes.
+- No hacer commits automáticamente salvo que se solicite.
