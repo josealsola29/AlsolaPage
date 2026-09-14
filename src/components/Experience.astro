@@ -1,0 +1,216 @@
+---
+interface ExperienceItem {
+  role: string;
+  organization: string;
+  period: string;
+  description: string;
+  highlights: string[];
+}
+
+const experiences: ExperienceItem[] = [
+  {
+    role: "Desarrollador de aplicaciones móviles",
+    organization: "Proyectos de software",
+    period: "Actualidad",
+    description:
+      "Desarrollo y mantenimiento de aplicaciones orientadas a procesos de captura, consulta y sincronización de información.",
+    highlights: [
+      "Desarrollo Android con Kotlin.",
+      "Interfaces modernas con Jetpack Compose.",
+      "Integración con APIs REST.",
+      "Persistencia y funcionamiento offline.",
+      "Aplicación de principios de arquitectura limpia."
+    ]
+  },
+  {
+    role: "Soporte técnico y capacitación",
+    organization: "Proyectos tecnológicos",
+    period: "Experiencia profesional",
+    description:
+      "Apoyo técnico a usuarios, capacitación y resolución de incidencias relacionadas con herramientas y aplicaciones utilizadas en operaciones de campo.",
+    highlights: [
+      "Capacitación de usuarios.",
+      "Resolución de incidencias.",
+      "Documentación de procesos.",
+      "Soporte a aplicaciones móviles."
+    ]
+  }
+];
+---
+
+<section
+  id="experience"
+  class="experience"
+  aria-labelledby="experience-title"
+>
+  <div class="experience-container">
+
+    <header class="section-header">
+      <p class="section-label">
+        Trayectoria
+      </p>
+
+      <h2 id="experience-title">
+        Experiencia
+      </h2>
+
+      <p class="section-description">
+        Algunas de las áreas en las que he trabajado
+        durante mi trayectoria profesional.
+      </p>
+    </header>
+
+    <div class="experience-list">
+      {
+        experiences.map((experience) => (
+          <article class="experience-item">
+
+            <div class="experience-meta">
+              <p class="period">
+                {experience.period}
+              </p>
+            </div>
+
+            <div class="experience-content">
+
+              <h3>
+                {experience.role}
+              </h3>
+
+              <p class="organization">
+                {experience.organization}
+              </p>
+
+              <p class="description">
+                {experience.description}
+              </p>
+
+              <ul>
+                {
+                  experience.highlights.map((highlight) => (
+                    <li>{highlight}</li>
+                  ))
+                }
+              </ul>
+
+            </div>
+
+          </article>
+        ))
+      }
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .experience {
+    padding: 6rem 2rem;
+    background: #f8fafc;
+  }
+
+  .experience-container {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    max-width: 700px;
+    margin-bottom: 3.5rem;
+  }
+
+  .section-label {
+    margin: 0 0 0.5rem;
+
+    font-size: 0.9rem;
+    font-weight: 700;
+
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+
+    color: #4b5563;
+  }
+
+  h2 {
+    margin: 0;
+
+    font-size: clamp(2rem, 5vw, 3rem);
+  }
+
+  .section-description {
+    margin-top: 1rem;
+
+    font-size: 1.1rem;
+    line-height: 1.7;
+
+    color: #4b5563;
+  }
+
+  .experience-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .experience-item {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+
+    gap: 3rem;
+
+    padding: 2.5rem 0;
+
+    border-top: 1px solid #e5e7eb;
+  }
+
+  .experience-item:last-child {
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  .period {
+    margin: 0;
+
+    font-size: 0.95rem;
+    font-weight: 600;
+
+    color: #4b5563;
+  }
+
+  .experience-content {
+    max-width: 700px;
+  }
+
+  .experience-content h3 {
+    margin: 0;
+
+    font-size: 1.4rem;
+  }
+
+  .organization {
+    margin: 0.4rem 0 1rem;
+
+    font-weight: 600;
+
+    color: #4b5563;
+  }
+
+  .description {
+    line-height: 1.7;
+  }
+
+  .experience-content ul {
+    padding-left: 1.25rem;
+
+    line-height: 1.7;
+  }
+
+  @media (max-width: 700px) {
+    .experience {
+      padding: 4rem 1.5rem;
+    }
+
+    .experience-item {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+  }
+</style>

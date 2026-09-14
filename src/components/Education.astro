@@ -1,0 +1,187 @@
+---
+interface EducationItem {
+  title: string;
+  institution: string;
+  period?: string;
+  description?: string;
+}
+
+const education: EducationItem[] = [
+  {
+    title: "Formación en Ingeniería de Software",
+    institution: "Formación universitaria y de posgrado",
+    description:
+      "Estudios orientados al diseño, desarrollo, arquitectura y gestión de soluciones de software."
+  },
+  {
+    title: "Desarrollo de Software",
+    institution: "Formación universitaria",
+    description:
+      "Fundamentos de programación, bases de datos, análisis, diseño y construcción de sistemas."
+  },
+  {
+    title: "Formación continua",
+    institution: "Cursos y aprendizaje profesional",
+    description:
+      "Actualización constante en Android, Kotlin, arquitectura de software y tecnologías modernas."
+  }
+];
+---
+
+<section
+  id="education"
+  class="education"
+  aria-labelledby="education-title"
+>
+  <div class="education-container">
+
+    <header class="section-header">
+
+      <p class="section-label">
+        Formación
+      </p>
+
+      <h2 id="education-title">
+        Educación
+      </h2>
+
+      <p class="section-description">
+        Mi formación académica y aprendizaje continuo
+        en desarrollo e ingeniería de software.
+      </p>
+
+    </header>
+
+    <div class="education-grid">
+
+      {
+        education.map((item) => (
+          <article class="education-card">
+
+            <h3>
+              {item.title}
+            </h3>
+
+            <p class="institution">
+              {item.institution}
+            </p>
+
+            {
+              item.period && (
+                <p class="period">
+                  {item.period}
+                </p>
+              )
+            }
+
+            {
+              item.description && (
+                <p class="description">
+                  {item.description}
+                </p>
+              )
+            }
+
+          </article>
+        ))
+      }
+
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .education {
+    padding: 6rem 2rem;
+  }
+
+  .education-container {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    max-width: 700px;
+    margin-bottom: 3rem;
+  }
+
+  .section-label {
+    margin: 0 0 0.5rem;
+
+    font-size: 0.9rem;
+    font-weight: 700;
+
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+
+    color: #4b5563;
+  }
+
+  h2 {
+    margin: 0;
+
+    font-size: clamp(2rem, 5vw, 3rem);
+  }
+
+  .section-description {
+    margin-top: 1rem;
+
+    font-size: 1.1rem;
+    line-height: 1.7;
+
+    color: #4b5563;
+  }
+
+  .education-grid {
+    display: grid;
+
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr));
+
+    gap: 1.5rem;
+  }
+
+  .education-card {
+    padding: 2rem;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+  }
+
+  .education-card h3 {
+    margin: 0;
+
+    font-size: 1.3rem;
+  }
+
+  .institution {
+    margin: 0.75rem 0;
+
+    font-weight: 600;
+
+    color: #4b5563;
+  }
+
+  .period {
+    color: #6b7280;
+  }
+
+  .description {
+    margin-bottom: 0;
+
+    line-height: 1.7;
+  }
+
+  @media (max-width: 850px) {
+    .education-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .education {
+      padding: 4rem 1.5rem;
+    }
+  }
+</style>
