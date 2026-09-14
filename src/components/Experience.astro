@@ -40,17 +40,21 @@ const experiences: ExperienceItem[] = [
 
 <section
   id="experience"
-  class="experience"
+  class="section section-alt"
   aria-labelledby="experience-title"
 >
-  <div class="experience-container">
+  <div class="container">
 
     <header class="section-header">
+
       <p class="section-label">
         Trayectoria
       </p>
 
-      <h2 id="experience-title">
+      <h2
+        id="experience-title"
+        class="section-title"
+      >
         Experiencia
       </h2>
 
@@ -58,14 +62,16 @@ const experiences: ExperienceItem[] = [
         Algunas de las áreas en las que he trabajado
         durante mi trayectoria profesional.
       </p>
+
     </header>
 
     <div class="experience-list">
+
       {
         experiences.map((experience) => (
           <article class="experience-item">
 
-            <div class="experience-meta">
+            <div>
               <p class="period">
                 {experience.period}
               </p>
@@ -98,54 +104,13 @@ const experiences: ExperienceItem[] = [
           </article>
         ))
       }
+
     </div>
 
   </div>
 </section>
 
 <style>
-  .experience {
-    padding: 6rem 2rem;
-    background: #f8fafc;
-  }
-
-  .experience-container {
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-
-  .section-header {
-    max-width: 700px;
-    margin-bottom: 3.5rem;
-  }
-
-  .section-label {
-    margin: 0 0 0.5rem;
-
-    font-size: 0.9rem;
-    font-weight: 700;
-
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-
-    color: #4b5563;
-  }
-
-  h2 {
-    margin: 0;
-
-    font-size: clamp(2rem, 5vw, 3rem);
-  }
-
-  .section-description {
-    margin-top: 1rem;
-
-    font-size: 1.1rem;
-    line-height: 1.7;
-
-    color: #4b5563;
-  }
-
   .experience-list {
     display: flex;
     flex-direction: column;
@@ -153,26 +118,32 @@ const experiences: ExperienceItem[] = [
 
   .experience-item {
     display: grid;
-    grid-template-columns: 180px 1fr;
+
+    grid-template-columns:
+      160px minmax(0, 1fr);
 
     gap: 3rem;
 
-    padding: 2.5rem 0;
+    padding-block: 2.5rem;
 
-    border-top: 1px solid #e5e7eb;
+    border-top:
+      1px solid
+      var(--color-border);
   }
 
   .experience-item:last-child {
-    border-bottom: 1px solid #e5e7eb;
+    border-bottom:
+      1px solid
+      var(--color-border);
   }
 
   .period {
     margin: 0;
 
-    font-size: 0.95rem;
-    font-weight: 600;
+    color: var(--color-primary);
 
-    color: #4b5563;
+    font-size: 0.9rem;
+    font-weight: 700;
   }
 
   .experience-content {
@@ -188,28 +159,29 @@ const experiences: ExperienceItem[] = [
   .organization {
     margin: 0.4rem 0 1rem;
 
-    font-weight: 600;
+    color: var(--color-text-muted);
 
-    color: #4b5563;
+    font-weight: 600;
   }
 
   .description {
-    line-height: 1.7;
+    color: var(--color-text-muted);
+
+    line-height: 1.75;
   }
 
   .experience-content ul {
     padding-left: 1.25rem;
 
-    line-height: 1.7;
+    color: var(--color-text-muted);
+
+    line-height: 1.75;
   }
 
   @media (max-width: 700px) {
-    .experience {
-      padding: 4rem 1.5rem;
-    }
-
     .experience-item {
       grid-template-columns: 1fr;
+
       gap: 1rem;
     }
   }

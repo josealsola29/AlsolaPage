@@ -1,19 +1,22 @@
 <section
   id="about"
-  class="about"
+  class="section section-alt"
   aria-labelledby="about-title"
 >
-  <div class="about-container">
+  <div class="container about-grid">
 
-    <div class="about-heading">
+    <header class="about-heading">
       <p class="section-label">
         Conóceme
       </p>
 
-      <h2 id="about-title">
+      <h2
+        id="about-title"
+        class="section-title"
+      >
         Sobre mí
       </h2>
-    </div>
+    </header>
 
     <div class="about-content">
       <p>
@@ -38,46 +41,35 @@
 </section>
 
 <style>
-  .about {
-    padding: 6rem 2rem;
-    background: #f8fafc;
-  }
-
-  .about-container {
-    max-width: 1100px;
-    margin: 0 auto;
-
+  .about-grid {
     display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 4rem;
-  }
 
-  .section-label {
-    margin: 0 0 0.5rem;
+    grid-template-columns:
+      minmax(0, 0.8fr)
+      minmax(0, 1.6fr);
 
-    font-size: 0.9rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
+    gap: clamp(2rem, 6vw, 5rem);
 
-    color: #4b5563;
-  }
-
-  h2 {
-    margin: 0;
-
-    font-size: clamp(2rem, 5vw, 3rem);
+    align-items: start;
   }
 
   .about-content {
     max-width: 700px;
 
+    color: var(--color-text-muted);
+
     font-size: 1.1rem;
     line-height: 1.8;
   }
 
+  .about-content p {
+    margin: 0 0 1.25rem;
+  }
+
   .about-content p:first-child {
-    margin-top: 0;
+    color: var(--color-text);
+
+    font-size: 1.15rem;
   }
 
   .about-content p:last-child {
@@ -85,12 +77,9 @@
   }
 
   @media (max-width: 768px) {
-    .about {
-      padding: 4rem 1.5rem;
-    }
-
-    .about-container {
+    .about-grid {
       grid-template-columns: 1fr;
+
       gap: 2rem;
     }
   }

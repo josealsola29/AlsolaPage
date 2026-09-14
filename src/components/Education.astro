@@ -30,10 +30,10 @@ const education: EducationItem[] = [
 
 <section
   id="education"
-  class="education"
+  class="section"
   aria-labelledby="education-title"
 >
-  <div class="education-container">
+  <div class="container">
 
     <header class="section-header">
 
@@ -41,7 +41,10 @@ const education: EducationItem[] = [
         Formación
       </p>
 
-      <h2 id="education-title">
+      <h2
+        id="education-title"
+        class="section-title"
+      >
         Educación
       </h2>
 
@@ -92,47 +95,6 @@ const education: EducationItem[] = [
 </section>
 
 <style>
-  .education {
-    padding: 6rem 2rem;
-  }
-
-  .education-container {
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-
-  .section-header {
-    max-width: 700px;
-    margin-bottom: 3rem;
-  }
-
-  .section-label {
-    margin: 0 0 0.5rem;
-
-    font-size: 0.9rem;
-    font-weight: 700;
-
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-
-    color: #4b5563;
-  }
-
-  h2 {
-    margin: 0;
-
-    font-size: clamp(2rem, 5vw, 3rem);
-  }
-
-  .section-description {
-    margin-top: 1rem;
-
-    font-size: 1.1rem;
-    line-height: 1.7;
-
-    color: #4b5563;
-  }
-
   .education-grid {
     display: grid;
 
@@ -143,10 +105,22 @@ const education: EducationItem[] = [
   }
 
   .education-card {
+    height: 100%;
+
     padding: 2rem;
 
-    border: 1px solid #e5e7eb;
-    border-radius: 12px;
+    border:
+      1px solid
+      var(--color-border);
+
+    border-radius:
+      var(--radius-md);
+
+    background:
+      var(--color-surface);
+
+    box-shadow:
+      var(--shadow-sm);
   }
 
   .education-card h3 {
@@ -158,30 +132,28 @@ const education: EducationItem[] = [
   .institution {
     margin: 0.75rem 0;
 
-    font-weight: 600;
+    color: var(--color-text-muted);
 
-    color: #4b5563;
+    font-weight: 600;
   }
 
   .period {
-    color: #6b7280;
+    color: var(--color-primary);
+
+    font-weight: 600;
   }
 
   .description {
     margin-bottom: 0;
 
-    line-height: 1.7;
+    color: var(--color-text-muted);
+
+    line-height: 1.75;
   }
 
   @media (max-width: 850px) {
     .education-grid {
       grid-template-columns: 1fr;
-    }
-  }
-
-  @media (max-width: 600px) {
-    .education {
-      padding: 4rem 1.5rem;
     }
   }
 </style>

@@ -6,11 +6,10 @@ import { projects } from "../data/projects";
 
 <section
   id="projects"
-  class="projects"
+  class="section section-alt"
   aria-labelledby="projects-title"
 >
-
-  <div class="projects-container">
+  <div class="container">
 
     <header class="section-header">
 
@@ -18,7 +17,10 @@ import { projects } from "../data/projects";
         Trabajo
       </p>
 
-      <h2 id="projects-title">
+      <h2
+        id="projects-title"
+        class="section-title"
+      >
         Proyectos
       </h2>
 
@@ -41,55 +43,9 @@ import { projects } from "../data/projects";
     </div>
 
   </div>
-
 </section>
 
 <style>
-  .projects {
-    padding: 6rem 2rem;
-
-    background: #f8fafc;
-  }
-
-  .projects-container {
-    max-width: 1100px;
-
-    margin: 0 auto;
-  }
-
-  .section-header {
-    max-width: 700px;
-
-    margin-bottom: 3rem;
-  }
-
-  .section-label {
-    margin: 0 0 0.5rem;
-
-    font-size: 0.9rem;
-    font-weight: 700;
-
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-
-    color: #4b5563;
-  }
-
-  h2 {
-    margin: 0;
-
-    font-size: clamp(2rem, 5vw, 3rem);
-  }
-
-  .section-description {
-    margin-top: 1rem;
-
-    font-size: 1.1rem;
-    line-height: 1.7;
-
-    color: #4b5563;
-  }
-
   .projects-grid {
     display: grid;
 
@@ -107,10 +63,6 @@ import { projects } from "../data/projects";
   }
 
   @media (max-width: 650px) {
-    .projects {
-      padding: 4rem 1.5rem;
-    }
-
     .projects-grid {
       grid-template-columns: 1fr;
     }

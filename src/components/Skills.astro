@@ -37,17 +37,21 @@ const skillGroups: SkillGroup[] = [
 
 <section
   id="skills"
-  class="skills"
+  class="section"
   aria-labelledby="skills-title"
 >
-  <div class="skills-container">
+  <div class="container">
 
     <header class="section-header">
+
       <p class="section-label">
         Herramientas
       </p>
 
-      <h2 id="skills-title">
+      <h2
+        id="skills-title"
+        class="section-title"
+      >
         Tecnologías
       </h2>
 
@@ -55,12 +59,15 @@ const skillGroups: SkillGroup[] = [
         Tecnologías y herramientas que utilizo o estudio
         para desarrollar soluciones de software.
       </p>
+
     </header>
 
     <div class="skills-grid">
+
       {
         skillGroups.map((group) => (
           <article class="skill-group">
+
             <h3>{group.title}</h3>
 
             <ul>
@@ -70,58 +77,22 @@ const skillGroups: SkillGroup[] = [
                 ))
               }
             </ul>
+
           </article>
         ))
       }
+
     </div>
 
   </div>
 </section>
 
 <style>
-  .skills {
-    padding: 6rem 2rem;
-  }
-
-  .skills-container {
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-
-  .section-header {
-    max-width: 700px;
-    margin-bottom: 3rem;
-  }
-
-  .section-label {
-    margin: 0 0 0.5rem;
-
-    font-size: 0.9rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-
-    color: #4b5563;
-  }
-
-  h2 {
-    margin: 0;
-
-    font-size: clamp(2rem, 5vw, 3rem);
-  }
-
-  .section-description {
-    margin-top: 1rem;
-
-    font-size: 1.1rem;
-    line-height: 1.7;
-
-    color: #4b5563;
-  }
-
   .skills-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr));
 
     gap: 1.5rem;
   }
@@ -129,13 +100,16 @@ const skillGroups: SkillGroup[] = [
   .skill-group {
     padding: 2rem;
 
-    border: 1px solid #e5e7eb;
-    border-radius: 12px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+
+    background: var(--color-surface);
+
+    box-shadow: var(--shadow-sm);
   }
 
   .skill-group h3 {
-    margin-top: 0;
-    margin-bottom: 1.5rem;
+    margin: 0 0 1.5rem;
 
     font-size: 1.25rem;
   }
@@ -144,33 +118,29 @@ const skillGroups: SkillGroup[] = [
     margin: 0;
     padding: 0;
 
-    list-style: none;
-
     display: flex;
     flex-wrap: wrap;
 
     gap: 0.75rem;
+
+    list-style: none;
   }
 
   .skill-group li {
     padding: 0.5rem 0.8rem;
 
-    border-radius: 6px;
+    border-radius: var(--radius-sm);
 
-    background: #f3f4f6;
+    color: var(--color-primary-hover);
+    background: var(--color-primary-soft);
 
     font-size: 0.95rem;
+    font-weight: 550;
   }
 
   @media (max-width: 800px) {
     .skills-grid {
       grid-template-columns: 1fr;
-    }
-  }
-
-  @media (max-width: 600px) {
-    .skills {
-      padding: 4rem 1.5rem;
     }
   }
 </style>
