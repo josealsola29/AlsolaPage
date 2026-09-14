@@ -1,0 +1,97 @@
+<section
+  id="about"
+  class="about"
+  aria-labelledby="about-title"
+>
+  <div class="about-container">
+
+    <div class="about-heading">
+      <p class="section-label">
+        Conóceme
+      </p>
+
+      <h2 id="about-title">
+        Sobre mí
+      </h2>
+    </div>
+
+    <div class="about-content">
+      <p>
+        Soy desarrollador de software con especial interés en
+        el desarrollo de aplicaciones móviles y el ecosistema Android.
+      </p>
+
+      <p>
+        Me interesa crear soluciones que combinen una arquitectura
+        mantenible, una buena experiencia de usuario y tecnologías
+        modernas.
+      </p>
+
+      <p>
+        También disfruto aprender nuevas herramientas y ampliar
+        mis conocimientos hacia otras áreas del desarrollo de software,
+        incluyendo tecnologías web y multiplataforma.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .about {
+    padding: 6rem 2rem;
+    background: #f8fafc;
+  }
+
+  .about-container {
+    max-width: 1100px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 4rem;
+  }
+
+  .section-label {
+    margin: 0 0 0.5rem;
+
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+
+    color: #4b5563;
+  }
+
+  h2 {
+    margin: 0;
+
+    font-size: clamp(2rem, 5vw, 3rem);
+  }
+
+  .about-content {
+    max-width: 700px;
+
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
+
+  .about-content p:first-child {
+    margin-top: 0;
+  }
+
+  .about-content p:last-child {
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 768px) {
+    .about {
+      padding: 4rem 1.5rem;
+    }
+
+    .about-container {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+</style>
