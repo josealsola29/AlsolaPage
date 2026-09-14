@@ -153,9 +153,11 @@ img {
     color var(--transition-fast),
     transform var(--transition-fast);
 }
-
-.button:hover {
-  transform: translateY(-1px);
+ 
+@media (hover: hover) and (pointer: fine) {
+  .button:hover {
+    transform: translateY(-1px);
+  }
 }
 
 .button-primary {
@@ -191,6 +193,27 @@ button:focus-visible {
       var(--container-width)
     );
   }
+
+  @media (max-width: 420px) {
+  .container {
+    width: min(
+      calc(100% - 2rem),
+      var(--container-width)
+    );
+  }
+
+  .section {
+    padding-block: 4rem;
+  }
+
+  .section-header {
+    margin-bottom: 2.25rem;
+  }
+
+  .section-description {
+    font-size: 1rem;
+  }
+}
 
   .section {
     padding-block: 4.5rem;
