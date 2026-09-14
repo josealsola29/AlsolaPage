@@ -1,0 +1,118 @@
+---
+import ProjectCard from "./ProjectCard.astro";
+
+import { projects } from "../data/projects";
+---
+
+<section
+  id="projects"
+  class="projects"
+  aria-labelledby="projects-title"
+>
+
+  <div class="projects-container">
+
+    <header class="section-header">
+
+      <p class="section-label">
+        Trabajo
+      </p>
+
+      <h2 id="projects-title">
+        Proyectos
+      </h2>
+
+      <p class="section-description">
+        Algunos proyectos y soluciones en los que he trabajado
+        mientras desarrollo y amplío mis conocimientos
+        en ingeniería de software.
+      </p>
+
+    </header>
+
+    <div class="projects-grid">
+
+      {
+        projects.map((project) => (
+          <ProjectCard project={project} />
+        ))
+      }
+
+    </div>
+
+  </div>
+
+</section>
+
+<style>
+  .projects {
+    padding: 6rem 2rem;
+
+    background: #f8fafc;
+  }
+
+  .projects-container {
+    max-width: 1100px;
+
+    margin: 0 auto;
+  }
+
+  .section-header {
+    max-width: 700px;
+
+    margin-bottom: 3rem;
+  }
+
+  .section-label {
+    margin: 0 0 0.5rem;
+
+    font-size: 0.9rem;
+    font-weight: 700;
+
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+
+    color: #4b5563;
+  }
+
+  h2 {
+    margin: 0;
+
+    font-size: clamp(2rem, 5vw, 3rem);
+  }
+
+  .section-description {
+    margin-top: 1rem;
+
+    font-size: 1.1rem;
+    line-height: 1.7;
+
+    color: #4b5563;
+  }
+
+  .projects-grid {
+    display: grid;
+
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr));
+
+    gap: 1.5rem;
+  }
+
+  @media (max-width: 900px) {
+    .projects-grid {
+      grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 650px) {
+    .projects {
+      padding: 4rem 1.5rem;
+    }
+
+    .projects-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

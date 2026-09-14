@@ -1,0 +1,160 @@
+---
+import type { Project } from "../data/projects";
+
+interface Props {
+  project: Project;
+}
+
+const { project } = Astro.props;
+---
+
+<article class="project-card">
+
+  <div class="project-content">
+
+    {
+      project.featured && (
+        <p class="featured">
+          Proyecto destacado
+        </p>
+      )
+    }
+
+    <h3>
+      {project.title}
+    </h3>
+
+    <p class="description">
+      {project.description}
+    </p>
+
+    <ul
+      class="technologies"
+      aria-label={`Tecnologías utilizadas en ${project.title}`}
+    >
+      {
+        project.technologies.map((technology) => (
+          <li>{technology}</li>
+        ))
+      }
+    </ul>
+
+  </div>
+
+  {
+    (project.repository || project.demo) && (
+      <div class="project-links">
+
+        {
+          project.repository && (
+            <a
+              href={project.repository}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Código
+            </a>
+          )
+        }
+
+        {
+          project.demo && (
+            <a
+              href={project.demo}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Ver proyecto
+            </a>
+          )
+        }
+
+      </div>
+    )
+  }
+
+</article>
+
+<style>
+  .project-card {
+    height: 100%;
+
+    padding: 2rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    gap: 2rem;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+
+    background: #ffffff;
+  }
+
+  .featured {
+    margin: 0 0 0.75rem;
+
+    font-size: 0.8rem;
+    font-weight: 700;
+
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+
+    color: #4b5563;
+  }
+
+  h3 {
+    margin: 0;
+
+    font-size: 1.4rem;
+  }
+
+  .description {
+    margin: 1rem 0;
+
+    line-height: 1.7;
+
+    color: #4b5563;
+  }
+
+  .technologies {
+    margin: 1.5rem 0 0;
+    padding: 0;
+
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 0.6rem;
+
+    list-style: none;
+  }
+
+  .technologies li {
+    padding: 0.45rem 0.7rem;
+
+    border-radius: 6px;
+
+    background: #f3f4f6;
+
+    font-size: 0.9rem;
+  }
+
+  .project-links {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .project-links a {
+    font-weight: 600;
+
+    color: #111827;
+
+    text-decoration: none;
+  }
+
+  .project-links a:hover {
+    text-decoration: underline;
+  }
+</style>
