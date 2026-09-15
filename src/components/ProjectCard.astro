@@ -105,9 +105,17 @@ const { project } = Astro.props;
       box-shadow var(--transition-fast);
   }
 
+@media (hover: hover) and (pointer: fine) {
   .project-card:hover {
     transform: translateY(-3px);
   }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-card:hover {
+    transform: none;
+  }
+}
 
   .featured {
     margin: 0 0 0.75rem;
