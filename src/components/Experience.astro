@@ -7,13 +7,21 @@ interface ExperienceItem {
   highlights: string[];
 }
 
-const experiences: ExperienceItem[] = [
+const experiences:
+  ExperienceItem[] = [
   {
-    role: "Desarrollador de aplicaciones móviles",
-    organization: "Proyectos de software",
-    period: "Actualidad",
+    role:
+      "Desarrollador de aplicaciones móviles",
+
+    organization:
+      "Proyectos de software",
+
+    period:
+      "Actualidad",
+
     description:
       "Desarrollo y mantenimiento de aplicaciones orientadas a procesos de captura, consulta y sincronización de información.",
+
     highlights: [
       "Desarrollo Android con Kotlin.",
       "Interfaces modernas con Jetpack Compose.",
@@ -22,12 +30,20 @@ const experiences: ExperienceItem[] = [
       "Aplicación de principios de arquitectura limpia."
     ]
   },
+
   {
-    role: "Soporte técnico y capacitación",
-    organization: "Proyectos tecnológicos",
-    period: "Experiencia profesional",
+    role:
+      "Soporte técnico y capacitación",
+
+    organization:
+      "Proyectos tecnológicos",
+
+    period:
+      "Experiencia profesional",
+
     description:
       "Apoyo técnico a usuarios, capacitación y resolución de incidencias relacionadas con herramientas y aplicaciones utilizadas en operaciones de campo.",
+
     highlights: [
       "Capacitación de usuarios.",
       "Resolución de incidencias.",
@@ -43,6 +59,7 @@ const experiences: ExperienceItem[] = [
   class="section section-alt"
   aria-labelledby="experience-title"
 >
+
   <div class="container">
 
     <header class="section-header">
@@ -65,124 +82,373 @@ const experiences: ExperienceItem[] = [
 
     </header>
 
-    <div class="experience-list">
+    <ol
+      class="experience-timeline"
+      aria-label="Trayectoria profesional"
+    >
 
       {
-        experiences.map((experience) => (
-          <article class="experience-item">
+        experiences.map(
+          (experience) => (
 
-            <div>
+            <li class="timeline-item">
+
               <p class="period">
                 {experience.period}
               </p>
-            </div>
 
-            <div class="experience-content">
+              <div
+                class="timeline-track"
+                aria-hidden="true"
+              >
+                <span class="timeline-dot"></span>
+              </div>
 
-              <h3>
-                {experience.role}
-              </h3>
+              <article class="experience-card">
 
-              <p class="organization">
-                {experience.organization}
-              </p>
+                <header class="experience-heading">
 
-              <p class="description">
-                {experience.description}
-              </p>
+                  <h3>
+                    {experience.role}
+                  </h3>
 
-              <ul>
-                {
-                  experience.highlights.map((highlight) => (
-                    <li>{highlight}</li>
-                  ))
-                }
-              </ul>
+                  <p class="organization">
+                    {experience.organization}
+                  </p>
 
-            </div>
+                </header>
 
-          </article>
-        ))
+                <p class="description">
+                  {experience.description}
+                </p>
+
+                <ul class="highlights">
+
+                  {
+                    experience.highlights.map(
+                      (highlight) => (
+                        <li>
+                          {highlight}
+                        </li>
+                      )
+                    )
+                  }
+
+                </ul>
+
+              </article>
+
+            </li>
+
+          )
+        )
       }
 
-    </div>
+    </ol>
 
   </div>
+
 </section>
 
 <style>
-  .experience-list {
+  .experience-timeline {
+    margin: 0;
+    padding: 0;
+
     display: flex;
     flex-direction: column;
+
+    gap: 1.5rem;
+
+    list-style: none;
   }
 
-  .experience-item {
+  .timeline-item {
     display: grid;
 
     grid-template-columns:
-      160px minmax(0, 1fr);
+      130px
+      28px
+      minmax(0, 1fr);
 
-    gap: 3rem;
+    grid-template-areas:
+      "period track content";
 
-    padding-block: 2.5rem;
+    column-gap: 1.5rem;
 
-    border-top:
-      1px solid
-      var(--color-border);
-  }
-
-  .experience-item:last-child {
-    border-bottom:
-      1px solid
-      var(--color-border);
+    align-items: start;
   }
 
   .period {
-    margin: 0;
+    grid-area: period;
 
-    color: var(--color-primary);
+    margin:
+      0.4rem
+      0
+      0;
+
+    color:
+      var(--color-primary);
 
     font-size: 0.9rem;
     font-weight: 700;
+
+    line-height: 1.4;
   }
 
-  .experience-content {
-    max-width: 700px;
+  .timeline-track {
+    grid-area: track;
+
+    position: relative;
+
+    align-self: stretch;
+
+    min-height: 100%;
   }
 
-  .experience-content h3 {
+  .timeline-track::after {
+    content: "";
+
+    position: absolute;
+
+    top: 18px;
+    bottom: -1.5rem;
+
+    left: 50%;
+
+    width: 2px;
+
+    background:
+      var(--color-border);
+
+    transform:
+      translateX(-50%);
+  }
+
+  .timeline-item:last-child
+    .timeline-track::after {
+    display: none;
+  }
+
+  .timeline-dot {
+    position: absolute;
+
+    top: 7px;
+    left: 50%;
+
+    z-index: 1;
+
+    width: 14px;
+    height: 14px;
+
+    border:
+      3px solid
+      var(--color-surface);
+
+    border-radius: 50%;
+
+    background:
+      var(--color-primary);
+
+    box-shadow:
+      0 0 0 3px
+      var(--color-primary-soft);
+
+    transform:
+      translateX(-50%);
+  }
+
+  .experience-card {
+    grid-area: content;
+
+    max-width: 760px;
+
+    padding:
+      1.75rem
+      2rem;
+
+    border:
+      1px solid
+      var(--color-border);
+
+    border-radius:
+      var(--radius-lg);
+
+    background:
+      var(--color-surface);
+
+    box-shadow:
+      var(--shadow-sm);
+
+    transition:
+      transform var(--transition-fast),
+      border-color var(--transition-fast),
+      box-shadow var(--transition-fast);
+  }
+
+  .experience-heading {
+    margin-bottom: 1.25rem;
+  }
+
+  .experience-heading h3 {
     margin: 0;
 
-    font-size: 1.4rem;
+    font-size:
+      clamp(
+        1.25rem,
+        2vw,
+        1.45rem
+      );
+
+    letter-spacing:
+      -0.015em;
   }
 
   .organization {
-    margin: 0.4rem 0 1rem;
+    margin:
+      0.45rem
+      0
+      0;
 
-    color: var(--color-text-muted);
+    color:
+      var(--color-primary);
 
-    font-weight: 600;
+    font-size: 0.95rem;
+    font-weight: 650;
   }
 
   .description {
-    color: var(--color-text-muted);
+    margin:
+      0
+      0
+      1.35rem;
+
+    color:
+      var(--color-text-muted);
 
     line-height: 1.75;
   }
 
-  .experience-content ul {
-    padding-left: 1.25rem;
+  .highlights {
+    margin: 0;
+    padding: 0;
 
-    color: var(--color-text-muted);
+    display: grid;
 
-    line-height: 1.75;
+    gap: 0.7rem;
+
+    list-style: none;
   }
 
-  @media (max-width: 700px) {
-    .experience-item {
-      grid-template-columns: 1fr;
+  .highlights li {
+    position: relative;
 
-      gap: 1rem;
+    padding-left: 1.5rem;
+
+    color:
+      var(--color-text-muted);
+
+    line-height: 1.6;
+  }
+
+  .highlights li::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0.65em;
+    left: 0;
+
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background:
+      var(--color-primary);
+  }
+
+  @media (
+    hover: hover
+  ) and (
+    pointer: fine
+  ) {
+
+    .experience-card:hover {
+      transform:
+        translateY(-3px);
+
+      border-color:
+        #bfdbfe;
+
+      box-shadow:
+        0 14px 34px
+        rgb(15 23 42 / 0.08);
     }
+
+  }
+
+  @media (
+    max-width: 700px
+  ) {
+
+    .timeline-item {
+      grid-template-columns:
+        28px
+        minmax(0, 1fr);
+
+      grid-template-areas:
+        "track period"
+        "track content";
+
+      column-gap: 1rem;
+      row-gap: 0.75rem;
+    }
+
+    .period {
+      margin: 0;
+    }
+
+    .timeline-dot {
+      top: 4px;
+    }
+
+    .timeline-track::after {
+      top: 15px;
+    }
+
+    .experience-card {
+      width: 100%;
+
+      padding:
+        1.5rem;
+    }
+
+  }
+
+  @media (
+    max-width: 420px
+  ) {
+
+    .experience-card {
+      padding:
+        1.35rem;
+    }
+
+  }
+
+  @media (
+    prefers-reduced-motion:
+    reduce
+  ) {
+
+    .experience-card {
+      transition: none;
+    }
+
+    .experience-card:hover {
+      transform: none;
+    }
+
   }
 </style>
