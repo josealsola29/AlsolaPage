@@ -1,0 +1,210 @@
+---
+import Icon from "./Icon.astro";
+import TechBadge from "./TechBadge.astro";
+
+type SkillIcon =
+  | "mobile"
+  | "architecture"
+  | "web";
+
+interface Props {
+  title: string;
+  description: string;
+  skills: string[];
+  icon: SkillIcon;
+}
+
+const {
+  title,
+  description,
+  skills,
+  icon
+} = Astro.props;
+---
+
+<article class="skill-card">
+
+  <div class="skill-card-header">
+
+    <div class="skill-icon">
+
+      <Icon name={icon} />
+
+    </div>
+
+    <div>
+
+      <h3>
+        {title}
+      </h3>
+
+      <p class="description">
+        {description}
+      </p>
+
+    </div>
+
+  </div>
+
+  <ul class="skills">
+
+    {
+      skills.map((skill) => (
+        <li>
+          <TechBadge name={skill} />
+        </li>
+      ))
+    }
+
+  </ul>
+
+</article>
+
+<style>
+  .skill-card {
+    position: relative;
+
+    height: 100%;
+
+    padding: 2rem;
+
+    overflow: hidden;
+
+    border:
+      1px solid
+      var(--color-border);
+
+    border-radius:
+      var(--radius-lg);
+
+    background:
+      var(--color-surface);
+
+    box-shadow:
+      var(--shadow-sm);
+
+    transition:
+      transform var(--transition-fast),
+      border-color var(--transition-fast),
+      box-shadow var(--transition-fast);
+  }
+
+  .skill-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 3px;
+
+    background:
+      linear-gradient(
+        90deg,
+        var(--color-primary),
+        #60a5fa
+      );
+  }
+
+  .skill-card-header {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 1rem;
+  }
+
+  .skill-icon {
+    width: 52px;
+    height: 52px;
+
+    flex: 0 0 52px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius:
+      var(--radius-md);
+
+    color:
+      var(--color-primary);
+
+    background:
+      var(--color-primary-soft);
+  }
+
+  h3 {
+    margin: 0;
+
+    font-size: 1.25rem;
+
+    letter-spacing:
+      -0.015em;
+  }
+
+  .description {
+    margin:
+      0.55rem
+      0
+      0;
+
+    color:
+      var(--color-text-muted);
+
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .skills {
+    margin:
+      1.75rem
+      0
+      0;
+
+    padding: 0;
+
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 0.65rem;
+
+    list-style: none;
+  }
+
+  @media (
+    hover: hover
+  ) and (
+    pointer: fine
+  ) {
+
+    .skill-card:hover {
+      transform:
+        translateY(-4px);
+
+      border-color:
+        #bfdbfe;
+
+      box-shadow:
+        0 14px 34px
+        rgb(15 23 42 / 0.08);
+    }
+
+  }
+
+  @media (
+    prefers-reduced-motion:
+    reduce
+  ) {
+
+    .skill-card {
+      transition: none;
+    }
+
+    .skill-card:hover {
+      transform: none;
+    }
+
+  }
+</style>

@@ -1,0 +1,133 @@
+---
+type IconName =
+  | "mobile"
+  | "architecture"
+  | "web";
+
+interface Props {
+  name: IconName;
+}
+
+const { name } = Astro.props;
+---
+
+<svg
+  class="icon"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.8"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  aria-hidden="true"
+  focusable="false"
+>
+
+  {
+    name === "mobile" && (
+      <g>
+        <rect
+          x="7"
+          y="2"
+          width="10"
+          height="20"
+          rx="2"
+        />
+
+        <line
+          x1="10"
+          y1="5"
+          x2="14"
+          y2="5"
+        />
+
+        <circle
+          cx="12"
+          cy="18.5"
+          r="0.7"
+          fill="currentColor"
+          stroke="none"
+        />
+      </g>
+    )
+  }
+
+  {
+    name === "architecture" && (
+      <g>
+        <rect
+          x="9"
+          y="2"
+          width="6"
+          height="5"
+          rx="1"
+        />
+
+        <rect
+          x="3"
+          y="17"
+          width="6"
+          height="5"
+          rx="1"
+        />
+
+        <rect
+          x="15"
+          y="17"
+          width="6"
+          height="5"
+          rx="1"
+        />
+
+        <path d="M12 7v5" />
+        <path d="M6 17v-5h12v5" />
+      </g>
+    )
+  }
+
+  {
+    name === "web" && (
+      <g>
+        <rect
+          x="2"
+          y="4"
+          width="20"
+          height="16"
+          rx="2"
+        />
+
+        <path d="M2 8h20" />
+
+        <circle
+          cx="5"
+          cy="6"
+          r="0.65"
+          fill="currentColor"
+          stroke="none"
+        />
+
+        <circle
+          cx="8"
+          cy="6"
+          r="0.65"
+          fill="currentColor"
+          stroke="none"
+        />
+
+        <path d="M8 13l-2 2 2 2" />
+        <path d="M16 13l2 2-2 2" />
+        <path d="M13 12l-2 6" />
+      </g>
+    )
+  }
+
+</svg>
+
+<style>
+  .icon {
+    width: 26px;
+    height: 26px;
+
+    display: block;
+  }
+</style>
