@@ -1,6 +1,8 @@
 ---
 import ProjectCard from "./ProjectCard.astro";
 
+import SectionHeader from "./ui/SectionHeader.astro";
+
 import { projects } from "../data/projects";
 ---
 
@@ -10,38 +12,16 @@ import { projects } from "../data/projects";
   aria-labelledby="projects-title"
 >
   <div class="container">
-
-    <header class="section-header">
-
-      <p class="section-label">
-        Trabajo
-      </p>
-
-      <h2
-        id="projects-title"
-        class="section-title"
-      >
-        Proyectos
-      </h2>
-
-      <p class="section-description">
-        Algunos proyectos y soluciones en los que he trabajado
-        mientras desarrollo y amplío mis conocimientos
-        en ingeniería de software.
-      </p>
-
-    </header>
+    <SectionHeader
+      label="Trabajo"
+      title="Proyectos"
+      titleId="projects-title"
+      description="Algunos proyectos y soluciones en los que he trabajado mientras desarrollo y amplío mis conocimientos en ingeniería de software."
+    />
 
     <div class="projects-grid">
-
-      {
-        projects.map((project) => (
-          <ProjectCard project={project} />
-        ))
-      }
-
+      {projects.map((project) => <ProjectCard project={project} />)}
     </div>
-
   </div>
 </section>
 
@@ -49,16 +29,14 @@ import { projects } from "../data/projects";
   .projects-grid {
     display: grid;
 
-    grid-template-columns:
-      repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
 
     gap: 1.5rem;
   }
 
   @media (max-width: 900px) {
     .projects-grid {
-      grid-template-columns:
-        repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
 

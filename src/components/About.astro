@@ -1,71 +1,40 @@
 ---
-import DeveloperCard
-  from "./ui/DeveloperCard.astro";
+import DeveloperCard from "./ui/DeveloperCard.astro";
+
+import SectionHeader from "./ui/SectionHeader.astro";
 ---
 
-<section
-  id="about"
-  class="section section-alt"
-  aria-labelledby="about-title"
->
-
+<section id="about" class="section section-alt" aria-labelledby="about-title">
   <div class="container">
-
-    <header class="section-header">
-
-      <p class="section-label">
-        Conóceme
-      </p>
-
-      <h2
-        id="about-title"
-        class="section-title"
-      >
-        Sobre mí
-      </h2>
-
-      <p class="section-description">
-        Construyo soluciones centradas en
-        aplicaciones móviles, arquitectura mantenible
-        y una buena experiencia de usuario.
-      </p>
-
-    </header>
+    <SectionHeader
+      label="Conóceme"
+      title="Sobre mí"
+      titleId="about-title"
+      description="Construyo soluciones centradas en aplicaciones móviles, arquitectura mantenible y una buena experiencia de usuario."
+    />
 
     <div class="about-grid">
-
       <div class="about-content">
-
         <p class="about-intro">
-          Soy desarrollador de software con
-          especial interés en el desarrollo
-          de aplicaciones móviles y el
-          ecosistema Android.
+          Soy desarrollador de software con especial interés en el desarrollo de
+          aplicaciones móviles y el ecosistema Android.
         </p>
 
         <p>
-          Me interesa crear soluciones que
-          combinen una arquitectura mantenible,
-          una buena experiencia de usuario y
-          tecnologías modernas.
+          Me interesa crear soluciones que combinen una arquitectura mantenible,
+          una buena experiencia de usuario y tecnologías modernas.
         </p>
 
         <p>
-          También disfruto aprender nuevas
-          herramientas y ampliar mis conocimientos
-          hacia otras áreas del desarrollo de
-          software, incluyendo tecnologías web
-          y multiplataforma.
+          También disfruto aprender nuevas herramientas y ampliar mis
+          conocimientos hacia otras áreas del desarrollo de software, incluyendo
+          tecnologías web y multiplataforma.
         </p>
-
       </div>
 
       <DeveloperCard />
-
     </div>
-
   </div>
-
 </section>
 
 <style>
@@ -76,12 +45,7 @@ import DeveloperCard
       minmax(0, 1.25fr)
       minmax(300px, 0.75fr);
 
-    gap:
-      clamp(
-        2.5rem,
-        6vw,
-        5rem
-      );
+    gap: clamp(2.5rem, 6vw, 5rem);
 
     align-items: start;
   }
@@ -89,18 +53,14 @@ import DeveloperCard
   .about-content {
     max-width: 680px;
 
-    color:
-      var(--color-text-muted);
+    color: var(--color-text-muted);
 
     font-size: 1.05rem;
     line-height: 1.85;
   }
 
   .about-content p {
-    margin:
-      0
-      0
-      1.35rem;
+    margin: 0 0 1.35rem;
   }
 
   .about-content p:last-child {
@@ -108,26 +68,16 @@ import DeveloperCard
   }
 
   .about-intro {
-    color:
-      var(--color-text);
+    color: var(--color-text);
 
-    font-size:
-      clamp(
-        1.1rem,
-        2vw,
-        1.2rem
-      );
+    font-size: clamp(1.1rem, 2vw, 1.2rem);
 
     font-weight: 500;
   }
 
-  @media (
-    max-width: 850px
-  ) {
-
+  @media (max-width: 850px) {
     .about-grid {
-      grid-template-columns:
-        1fr;
+      grid-template-columns: 1fr;
 
       gap: 2.5rem;
     }
@@ -135,6 +85,5 @@ import DeveloperCard
     .about-content {
       max-width: 100%;
     }
-
   }
 </style>

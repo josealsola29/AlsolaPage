@@ -1,4 +1,5 @@
 ---
+import SectionHeader from "./ui/SectionHeader.astro";
 interface ExperienceItem {
   role: string;
   organization: string;
@@ -7,17 +8,13 @@ interface ExperienceItem {
   highlights: string[];
 }
 
-const experiences:
-  ExperienceItem[] = [
+const experiences: ExperienceItem[] = [
   {
-    role:
-      "Desarrollador de aplicaciones móviles",
+    role: "Desarrollador de aplicaciones móviles",
 
-    organization:
-      "Proyectos de software",
+    organization: "Proyectos de software",
 
-    period:
-      "Actualidad",
+    period: "Actualidad",
 
     description:
       "Desarrollo y mantenimiento de aplicaciones orientadas a procesos de captura, consulta y sincronización de información.",
@@ -27,19 +24,16 @@ const experiences:
       "Interfaces modernas con Jetpack Compose.",
       "Integración con APIs REST.",
       "Persistencia y funcionamiento offline.",
-      "Aplicación de principios de arquitectura limpia."
-    ]
+      "Aplicación de principios de arquitectura limpia.",
+    ],
   },
 
   {
-    role:
-      "Soporte técnico y capacitación",
+    role: "Soporte técnico y capacitación",
 
-    organization:
-      "Proyectos tecnológicos",
+    organization: "Proyectos tecnológicos",
 
-    period:
-      "Experiencia profesional",
+    period: "Experiencia profesional",
 
     description:
       "Apoyo técnico a usuarios, capacitación y resolución de incidencias relacionadas con herramientas y aplicaciones utilizadas en operaciones de campo.",
@@ -48,9 +42,9 @@ const experiences:
       "Capacitación de usuarios.",
       "Resolución de incidencias.",
       "Documentación de procesos.",
-      "Soporte a aplicaciones móviles."
-    ]
-  }
+      "Soporte a aplicaciones móviles.",
+    ],
+  },
 ];
 ---
 
@@ -59,95 +53,44 @@ const experiences:
   class="section section-alt"
   aria-labelledby="experience-title"
 >
-
   <div class="container">
+    <SectionHeader
+      label="Trayectoria"
+      title="Experiencia"
+      titleId="experience-title"
+      description="Algunas de las áreas en las que he trabajado durante mi trayectoria profesional."
+    />
 
-    <header class="section-header">
-
-      <p class="section-label">
-        Trayectoria
-      </p>
-
-      <h2
-        id="experience-title"
-        class="section-title"
-      >
-        Experiencia
-      </h2>
-
-      <p class="section-description">
-        Algunas de las áreas en las que he trabajado
-        durante mi trayectoria profesional.
-      </p>
-
-    </header>
-
-    <ol
-      class="experience-timeline"
-      aria-label="Trayectoria profesional"
-    >
-
+    <ol class="experience-timeline" aria-label="Trayectoria profesional">
       {
-        experiences.map(
-          (experience) => (
+        experiences.map((experience) => (
+          <li class="timeline-item">
+            <p class="period">{experience.period}</p>
 
-            <li class="timeline-item">
+            <div class="timeline-track" aria-hidden="true">
+              <span class="timeline-dot" />
+            </div>
 
-              <p class="period">
-                {experience.period}
-              </p>
+            <article class="experience-card">
+              <header class="experience-heading">
+                <h3>{experience.role}</h3>
 
-              <div
-                class="timeline-track"
-                aria-hidden="true"
-              >
-                <span class="timeline-dot"></span>
-              </div>
+                <p class="organization">{experience.organization}</p>
+              </header>
 
-              <article class="experience-card">
+              <p class="description">{experience.description}</p>
 
-                <header class="experience-heading">
-
-                  <h3>
-                    {experience.role}
-                  </h3>
-
-                  <p class="organization">
-                    {experience.organization}
-                  </p>
-
-                </header>
-
-                <p class="description">
-                  {experience.description}
-                </p>
-
-                <ul class="highlights">
-
-                  {
-                    experience.highlights.map(
-                      (highlight) => (
-                        <li>
-                          {highlight}
-                        </li>
-                      )
-                    )
-                  }
-
-                </ul>
-
-              </article>
-
-            </li>
-
-          )
-        )
+              <ul class="highlights">
+                {experience.highlights.map((highlight) => (
+                  <li>{highlight}</li>
+                ))}
+              </ul>
+            </article>
+          </li>
+        ))
       }
-
     </ol>
-
   </div>
-
 </section>
 
 <style>
@@ -171,8 +114,7 @@ const experiences:
       28px
       minmax(0, 1fr);
 
-    grid-template-areas:
-      "period track content";
+    grid-template-areas: "period track content";
 
     column-gap: 1.5rem;
 
@@ -182,13 +124,9 @@ const experiences:
   .period {
     grid-area: period;
 
-    margin:
-      0.4rem
-      0
-      0;
+    margin: 0.4rem 0 0;
 
-    color:
-      var(--color-primary);
+    color: var(--color-primary);
 
     font-size: 0.9rem;
     font-weight: 700;
@@ -218,15 +156,12 @@ const experiences:
 
     width: 2px;
 
-    background:
-      var(--color-border);
+    background: var(--color-border);
 
-    transform:
-      translateX(-50%);
+    transform: translateX(-50%);
   }
 
-  .timeline-item:last-child
-    .timeline-track::after {
+  .timeline-item:last-child .timeline-track::after {
     display: none;
   }
 
@@ -241,21 +176,15 @@ const experiences:
     width: 14px;
     height: 14px;
 
-    border:
-      3px solid
-      var(--color-surface);
+    border: 3px solid var(--color-surface);
 
     border-radius: 50%;
 
-    background:
-      var(--color-primary);
+    background: var(--color-primary);
 
-    box-shadow:
-      0 0 0 3px
-      var(--color-primary-soft);
+    box-shadow: 0 0 0 3px var(--color-primary-soft);
 
-    transform:
-      translateX(-50%);
+    transform: translateX(-50%);
   }
 
   .experience-card {
@@ -263,22 +192,15 @@ const experiences:
 
     max-width: 760px;
 
-    padding:
-      1.75rem
-      2rem;
+    padding: 1.75rem 2rem;
 
-    border:
-      1px solid
-      var(--color-border);
+    border: 1px solid var(--color-border);
 
-    border-radius:
-      var(--radius-lg);
+    border-radius: var(--radius-lg);
 
-    background:
-      var(--color-surface);
+    background: var(--color-surface);
 
-    box-shadow:
-      var(--shadow-sm);
+    box-shadow: var(--shadow-sm);
 
     transition:
       transform var(--transition-fast),
@@ -293,38 +215,24 @@ const experiences:
   .experience-heading h3 {
     margin: 0;
 
-    font-size:
-      clamp(
-        1.25rem,
-        2vw,
-        1.45rem
-      );
+    font-size: clamp(1.25rem, 2vw, 1.45rem);
 
-    letter-spacing:
-      -0.015em;
+    letter-spacing: -0.015em;
   }
 
   .organization {
-    margin:
-      0.45rem
-      0
-      0;
+    margin: 0.45rem 0 0;
 
-    color:
-      var(--color-primary);
+    color: var(--color-primary);
 
     font-size: 0.95rem;
     font-weight: 650;
   }
 
   .description {
-    margin:
-      0
-      0
-      1.35rem;
+    margin: 0 0 1.35rem;
 
-    color:
-      var(--color-text-muted);
+    color: var(--color-text-muted);
 
     line-height: 1.75;
   }
@@ -345,8 +253,7 @@ const experiences:
 
     padding-left: 1.5rem;
 
-    color:
-      var(--color-text-muted);
+    color: var(--color-text-muted);
 
     line-height: 1.6;
   }
@@ -364,34 +271,20 @@ const experiences:
 
     border-radius: 50%;
 
-    background:
-      var(--color-primary);
+    background: var(--color-primary);
   }
 
-  @media (
-    hover: hover
-  ) and (
-    pointer: fine
-  ) {
-
+  @media (hover: hover) and (pointer: fine) {
     .experience-card:hover {
-      transform:
-        translateY(-3px);
+      transform: translateY(-3px);
 
-      border-color:
-        #bfdbfe;
+      border-color: #bfdbfe;
 
-      box-shadow:
-        0 14px 34px
-        rgb(15 23 42 / 0.08);
+      box-shadow: 0 14px 34px rgb(15 23 42 / 0.08);
     }
-
   }
 
-  @media (
-    max-width: 700px
-  ) {
-
+  @media (max-width: 700px) {
     .timeline-item {
       grid-template-columns:
         28px
@@ -420,28 +313,17 @@ const experiences:
     .experience-card {
       width: 100%;
 
-      padding:
-        1.5rem;
+      padding: 1.5rem;
     }
-
   }
 
-  @media (
-    max-width: 420px
-  ) {
-
+  @media (max-width: 420px) {
     .experience-card {
-      padding:
-        1.35rem;
+      padding: 1.35rem;
     }
-
   }
 
-  @media (
-    prefers-reduced-motion:
-    reduce
-  ) {
-
+  @media (prefers-reduced-motion: reduce) {
     .experience-card {
       transition: none;
     }
@@ -449,6 +331,5 @@ const experiences:
     .experience-card:hover {
       transform: none;
     }
-
   }
 </style>

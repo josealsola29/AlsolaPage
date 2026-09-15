@@ -1,11 +1,9 @@
 ---
-import SkillCard
-  from "./ui/SkillCard.astro";
+import SectionHeader from "./ui/SectionHeader.astro";
 
-type SkillIcon =
-  | "mobile"
-  | "architecture"
-  | "web";
+import SkillCard from "./ui/SkillCard.astro";
+
+type SkillIcon = "mobile" | "architecture" | "web";
 
 interface SkillGroup {
   title: string;
@@ -14,127 +12,71 @@ interface SkillGroup {
   skills: string[];
 }
 
-const skillGroups:
-  SkillGroup[] = [
+const skillGroups: SkillGroup[] = [
   {
-    title:
-      "Desarrollo móvil",
+    title: "Desarrollo móvil",
 
     description:
       "Tecnologías orientadas al desarrollo de aplicaciones móviles modernas y mantenibles.",
 
-    icon:
-      "mobile",
+    icon: "mobile",
 
-    skills: [
-      "Kotlin",
-      "Android",
-      "Jetpack Compose",
-      "Kotlin Multiplatform"
-    ]
+    skills: ["Kotlin", "Android", "Jetpack Compose", "Kotlin Multiplatform"],
   },
 
   {
-    title:
-      "Arquitectura y datos",
+    title: "Arquitectura y datos",
 
     description:
       "Herramientas y principios para organizar, persistir y sincronizar información.",
 
-    icon:
-      "architecture",
+    icon: "architecture",
 
-    skills: [
-      "Clean Architecture",
-      "Room",
-      "Retrofit",
-      "REST APIs"
-    ]
+    skills: ["Clean Architecture", "Room", "Retrofit", "REST APIs"],
   },
 
   {
-    title:
-      "Web y herramientas",
+    title: "Web y herramientas",
 
     description:
       "Tecnologías utilizadas para construir, versionar y publicar soluciones de software.",
 
-    icon:
-      "web",
+    icon: "web",
 
-    skills: [
-      "Astro",
-      "TypeScript",
-      "Git",
-      "GitHub"
-    ]
-  }
+    skills: ["Astro", "TypeScript", "Git", "GitHub"],
+  },
 ];
 ---
 
-<section
-  id="skills"
-  class="section"
-  aria-labelledby="skills-title"
->
-
+<section id="skills" class="section" aria-labelledby="skills-title">
   <div class="container">
-
-    <header class="section-header">
-
-      <p class="section-label">
-        Herramientas
-      </p>
-
-      <h2
-        id="skills-title"
-        class="section-title"
-      >
-        Tecnologías
-      </h2>
-
-      <p class="section-description">
-        Tecnologías y herramientas que utilizo
-        o estudio para desarrollar soluciones
-        de software.
-      </p>
-
-    </header>
+    <SectionHeader
+      label="Herramientas"
+      title="Tecnologías"
+      titleId="skills-title"
+      description="Tecnologías y herramientas que utilizo o estudio para desarrollar soluciones de software."
+    />
 
     <div class="skills-grid">
-
       {
-        skillGroups.map(
-          (group) => (
-
-            <SkillCard
-              title={group.title}
-              description={
-                group.description
-              }
-              icon={group.icon}
-              skills={group.skills}
-            />
-
-          )
-        )
+        skillGroups.map((group) => (
+          <SkillCard
+            title={group.title}
+            description={group.description}
+            icon={group.icon}
+            skills={group.skills}
+          />
+        ))
       }
-
     </div>
-
   </div>
-
 </section>
 
 <style>
   .skills-grid {
     display: grid;
 
-    grid-template-columns:
-      repeat(
-        auto-fit,
-        minmax(260px, 1fr)
-      );
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 
     gap: 1.5rem;
   }

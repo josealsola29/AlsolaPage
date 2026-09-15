@@ -1,0 +1,80 @@
+---
+interface Props {
+  label: string;
+  title: string;
+  description?: string;
+  titleId: string;
+  variant?: "default" | "inverse";
+  large?: boolean;
+}
+
+const {
+  label,
+  title,
+  description,
+  titleId,
+  variant = "default",
+  large = false
+} = Astro.props;
+---
+
+<header
+  class:list={[
+    "section-header",
+    {
+      "section-header-inverse":
+        variant === "inverse",
+
+      "section-header-large":
+        large
+    }
+  ]}
+>
+
+  <p class="section-label">
+    {label}
+  </p>
+
+  <h2
+    id={titleId}
+    class="section-title"
+  >
+    {title}
+  </h2>
+
+  {
+    description && (
+      <p class="section-description">
+        {description}
+      </p>
+    )
+  }
+
+</header>
+
+<style>
+  .section-header-inverse
+    .section-label {
+    color: #93c5fd;
+  }
+
+  .section-header-inverse
+    .section-title {
+    color: #ffffff;
+  }
+
+  .section-header-inverse
+    .section-description {
+    color: #cbd5e1;
+  }
+
+  .section-header-large
+    .section-title {
+    font-size:
+      clamp(
+        2.5rem,
+        6vw,
+        4rem
+      );
+  }
+</style>

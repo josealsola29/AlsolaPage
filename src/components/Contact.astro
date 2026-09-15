@@ -1,31 +1,20 @@
-<section
-  id="contact"
-  class="section contact"
-  aria-labelledby="contact-title"
->
+---
+import SectionHeader from "./ui/SectionHeader.astro";
+---
+
+<section id="contact" class="section contact" aria-labelledby="contact-title">
   <div class="container">
-
     <div class="contact-content">
-
-      <p class="section-label">
-        Contacto
-      </p>
-
-      <h2
-        id="contact-title"
-        class="section-title"
-      >
-        ¿Hablamos?
-      </h2>
-
-      <p class="section-description">
-        Si quieres conversar sobre desarrollo de software,
-        aplicaciones móviles, proyectos tecnológicos o alguna
-        oportunidad de colaboración, puedes contactarme.
-      </p>
+      <SectionHeader
+        label="Contacto"
+        title="¿Hablamos?"
+        titleId="contact-title"
+        description="Si quieres conversar sobre desarrollo de software, aplicaciones móviles, proyectos tecnológicos o alguna oportunidad de colaboración, puedes contactarme."
+        variant="inverse"
+        large
+      />
 
       <div class="contact-actions">
-
         <a
           class="button button-secondary"
           href="https://github.com/josealsola29"
@@ -34,11 +23,8 @@
         >
           Ver GitHub
         </a>
-
       </div>
-
     </div>
-
   </div>
 </section>
 
@@ -46,31 +32,13 @@
   .contact {
     color: #ffffff;
 
-    background:
-      var(--color-dark);
+    background: var(--color-dark);
   }
 
   .contact-content {
     max-width: 750px;
   }
-
-  .contact .section-label {
-    color: #93c5fd;
-  }
-
-  .contact .section-title {
-    color: #ffffff;
-
-    font-size:
-      clamp(2.5rem, 6vw, 4rem);
-  }
-
-  .contact .section-description {
-    max-width: 650px;
-
-    color: #cbd5e1;
-  }
-
+  
   .contact-actions {
     margin-top: 2.5rem;
 
