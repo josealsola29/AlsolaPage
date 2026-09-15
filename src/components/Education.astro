@@ -1,4 +1,7 @@
 ---
+import EducationCard
+  from "./ui/EducationCard.astro";
+
 interface EducationItem {
   title: string;
   institution: string;
@@ -6,22 +9,37 @@ interface EducationItem {
   description?: string;
 }
 
-const education: EducationItem[] = [
+const education:
+  EducationItem[] = [
   {
-    title: "Formación en Ingeniería de Software",
-    institution: "Formación universitaria y de posgrado",
+    title:
+      "Formación en Ingeniería de Software",
+
+    institution:
+      "Formación universitaria y de posgrado",
+
     description:
       "Estudios orientados al diseño, desarrollo, arquitectura y gestión de soluciones de software."
   },
+
   {
-    title: "Desarrollo de Software",
-    institution: "Formación universitaria",
+    title:
+      "Desarrollo de Software",
+
+    institution:
+      "Formación universitaria",
+
     description:
       "Fundamentos de programación, bases de datos, análisis, diseño y construcción de sistemas."
   },
+
   {
-    title: "Formación continua",
-    institution: "Cursos y aprendizaje profesional",
+    title:
+      "Formación continua",
+
+    institution:
+      "Cursos y aprendizaje profesional",
+
     description:
       "Actualización constante en Android, Kotlin, arquitectura de software y tecnologías modernas."
   }
@@ -33,6 +51,7 @@ const education: EducationItem[] = [
   class="section"
   aria-labelledby="education-title"
 >
+
   <div class="container">
 
     <header class="section-header">
@@ -49,8 +68,9 @@ const education: EducationItem[] = [
       </h2>
 
       <p class="section-description">
-        Mi formación académica y aprendizaje continuo
-        en desarrollo e ingeniería de software.
+        Mi formación académica y aprendizaje
+        continuo en desarrollo e ingeniería
+        de software.
       </p>
 
     </header>
@@ -58,40 +78,29 @@ const education: EducationItem[] = [
     <div class="education-grid">
 
       {
-        education.map((item) => (
-          <article class="education-card">
+        education.map(
+          (item, index) => (
 
-            <h3>
-              {item.title}
-            </h3>
+            <EducationCard
+              index={index + 1}
+              title={item.title}
+              institution={
+                item.institution
+              }
+              period={item.period}
+              description={
+                item.description
+              }
+            />
 
-            <p class="institution">
-              {item.institution}
-            </p>
-
-            {
-              item.period && (
-                <p class="period">
-                  {item.period}
-                </p>
-              )
-            }
-
-            {
-              item.description && (
-                <p class="description">
-                  {item.description}
-                </p>
-              )
-            }
-
-          </article>
-        ))
+          )
+        )
       }
 
     </div>
 
   </div>
+
 </section>
 
 <style>
@@ -99,61 +108,11 @@ const education: EducationItem[] = [
     display: grid;
 
     grid-template-columns:
-      repeat(3, minmax(0, 1fr));
+      repeat(
+        auto-fit,
+        minmax(260px, 1fr)
+      );
 
     gap: 1.5rem;
-  }
-
-  .education-card {
-    height: 100%;
-
-    padding: 2rem;
-
-    border:
-      1px solid
-      var(--color-border);
-
-    border-radius:
-      var(--radius-md);
-
-    background:
-      var(--color-surface);
-
-    box-shadow:
-      var(--shadow-sm);
-  }
-
-  .education-card h3 {
-    margin: 0;
-
-    font-size: 1.3rem;
-  }
-
-  .institution {
-    margin: 0.75rem 0;
-
-    color: var(--color-text-muted);
-
-    font-weight: 600;
-  }
-
-  .period {
-    color: var(--color-primary);
-
-    font-weight: 600;
-  }
-
-  .description {
-    margin-bottom: 0;
-
-    color: var(--color-text-muted);
-
-    line-height: 1.75;
-  }
-
-  @media (max-width: 850px) {
-    .education-grid {
-      grid-template-columns: 1fr;
-    }
   }
 </style>

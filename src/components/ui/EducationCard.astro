@@ -1,0 +1,221 @@
+---
+interface Props {
+  index: number;
+  title: string;
+  institution: string;
+  description?: string;
+  period?: string;
+}
+
+const {
+  index,
+  title,
+  institution,
+  description,
+  period
+} = Astro.props;
+
+const formattedIndex =
+  String(index).padStart(2, "0");
+---
+
+<article class="education-card">
+
+  <header class="education-card-header">
+
+    <span
+      class="education-index"
+      aria-hidden="true"
+    >
+      {formattedIndex}
+    </span>
+
+    {
+      period && (
+        <span class="education-period">
+          {period}
+        </span>
+      )
+    }
+
+  </header>
+
+  <div class="education-content">
+
+    <h3>
+      {title}
+    </h3>
+
+    <p class="institution">
+      {institution}
+    </p>
+
+    {
+      description && (
+        <p class="description">
+          {description}
+        </p>
+      )
+    }
+
+  </div>
+
+</article>
+
+<style>
+  .education-card {
+    position: relative;
+
+    height: 100%;
+
+    padding: 2rem;
+
+    overflow: hidden;
+
+    border:
+      1px solid
+      var(--color-border);
+
+    border-radius:
+      var(--radius-lg);
+
+    background:
+      var(--color-surface);
+
+    box-shadow:
+      var(--shadow-sm);
+
+    transition:
+      transform var(--transition-fast),
+      border-color var(--transition-fast),
+      box-shadow var(--transition-fast);
+  }
+
+  .education-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 3px;
+
+    background:
+      linear-gradient(
+        90deg,
+        var(--color-primary),
+        #60a5fa
+      );
+  }
+
+  .education-card-header {
+    margin-bottom: 2rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 1rem;
+  }
+
+  .education-index {
+    color:
+      var(--color-primary);
+
+    font-size: 0.85rem;
+    font-weight: 750;
+
+    letter-spacing: 0.08em;
+  }
+
+  .education-period {
+    padding:
+      0.35rem
+      0.65rem;
+
+    border-radius:
+      var(--radius-sm);
+
+    color:
+      var(--color-primary-hover);
+
+    background:
+      var(--color-primary-soft);
+
+    font-size: 0.8rem;
+    font-weight: 650;
+  }
+
+  .education-content h3 {
+    margin: 0;
+
+    font-size:
+      clamp(
+        1.2rem,
+        2vw,
+        1.35rem
+      );
+
+    letter-spacing:
+      -0.015em;
+  }
+
+  .institution {
+    margin:
+      0.75rem
+      0
+      1.25rem;
+
+    color:
+      var(--color-primary);
+
+    font-size: 0.95rem;
+    font-weight: 650;
+  }
+
+  .description {
+    margin: 0;
+
+    color:
+      var(--color-text-muted);
+
+    line-height: 1.75;
+  }
+
+  @media (
+    hover: hover
+  ) and (
+    pointer: fine
+  ) {
+
+    .education-card:hover {
+      transform:
+        translateY(-4px);
+
+      border-color:
+        #bfdbfe;
+
+      box-shadow:
+        0 14px 34px
+        rgb(15 23 42 / 0.08);
+    }
+
+  }
+
+  @media (
+    prefers-reduced-motion:
+    reduce
+  ) {
+
+    .education-card {
+      transition: none;
+    }
+
+    .education-card:hover {
+      transform: none;
+    }
+
+  }
+</style>
