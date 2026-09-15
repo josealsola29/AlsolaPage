@@ -34,13 +34,21 @@ export const projects: Project[] = [
   },
   {
     title: "AlsolaPage",
+
     description:
-      "Portafolio personal desarrollado para presentar experiencia profesional, tecnologías, formación y proyectos de software.",
+      "Portafolio personal desarrollado con Astro para presentar experiencia profesional, tecnologías, formación y proyectos de software.",
+
     technologies: [
       "Astro",
       "TypeScript",
       "CSS",
-      "GitHub"
-    ]
+      "GitHub Actions"
+    ],
+
+    repository:
+      "https://github.com/josealsola29/AlsolaPage",
+
+    demo:
+      "https://josealsola29.github.io/AlsolaPage/"
   }
 ];
