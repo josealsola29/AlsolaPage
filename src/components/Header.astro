@@ -1,6 +1,33 @@
 ---
 const baseURL =
   import.meta.env.BASE_URL;
+
+const navigationItems = [
+  {
+    label: "Sobre mí",
+    section: "about"
+  },
+  {
+    label: "Tecnologías",
+    section: "skills"
+  },
+  {
+    label: "Experiencia",
+    section: "experience"
+  },
+  {
+    label: "Formación",
+    section: "education"
+  },
+  {
+    label: "Proyectos",
+    section: "projects"
+  },
+  {
+    label: "Contacto",
+    section: "contact"
+  }
+];
 ---
 
 <header class="header">
@@ -26,21 +53,24 @@ const baseURL =
       <strong>Dev</strong>
     </a>
 
-    <div class="desktop-navigation">
+<div class="desktop-navigation">
 
-      <a href="#about">
-        Sobre mí
-      </a>
+  {
+    navigationItems.map(
+      (item) => (
 
-      <a href="#projects">
-        Proyectos
-      </a>
+        <a
+          href={`#${item.section}`}
+          data-nav-section={item.section}
+        >
+          {item.label}
+        </a>
 
-      <a href="#contact">
-        Contacto
-      </a>
+      )
+    )
+  }
 
-    </div>
+</div>
 
     <details class="mobile-menu">
 
@@ -61,21 +91,24 @@ const baseURL =
 
       </summary>
 
-      <div class="mobile-navigation">
+<div class="mobile-navigation">
 
-        <a href="#about">
-          Sobre mí
+  {
+    navigationItems.map(
+      (item) => (
+
+        <a
+          href={`#${item.section}`}
+          data-nav-section={item.section}
+        >
+          {item.label}
         </a>
 
-        <a href="#projects">
-          Proyectos
-        </a>
+      )
+    )
+  }
 
-        <a href="#contact">
-          Contacto
-        </a>
-
-      </div>
+</div>
 
     </details>
 
@@ -85,21 +118,153 @@ const baseURL =
 
 <script>
   const mobileMenu =
-    document.querySelector(".mobile-menu");
+    document.querySelector(
+      ".mobile-menu"
+    );
 
-  const mobileLinks =
-    mobileMenu?.querySelectorAll("a");
+  const navigationLinks =
+    document.querySelectorAll(
+      "[data-nav-section]"
+    );
 
-  mobileLinks?.forEach((link) => {
-    link.addEventListener("click", () => {
-      if (
-        mobileMenu instanceof
-        HTMLDetailsElement
-      ) {
-        mobileMenu.open = false;
+  // Marca visualmente la sección activa.
+  const setActiveSection = (
+     sectionId: string
+  ) => {
+
+    navigationLinks.forEach(
+      (link) => {
+
+        if (
+          !(
+            link instanceof
+            HTMLAnchorElement
+          )
+        ) {
+          return;
+        }
+
+        const isActive =
+          link.dataset.navSection ===
+          sectionId;
+
+        link.classList.toggle(
+          "is-active",
+          isActive
+        );
+
+        if (isActive) {
+          link.setAttribute(
+            "aria-current",
+            "location"
+          );
+        } else {
+          link.removeAttribute(
+            "aria-current"
+          );
+        }
+
       }
-    });
-  });
+    );
+
+  };
+
+  // Cierra el menú móvil y actualiza
+  // inmediatamente el enlace seleccionado.
+  navigationLinks.forEach(
+    (link) => {
+
+      link.addEventListener(
+        "click",
+        () => {
+
+          if (
+            link instanceof
+            HTMLAnchorElement
+          ) {
+
+            const sectionId =
+              link.dataset.navSection;
+
+            if (sectionId) {
+              setActiveSection(
+                sectionId
+              );
+            }
+
+          }
+
+          if (
+            mobileMenu instanceof
+            HTMLDetailsElement
+          ) {
+            mobileMenu.open = false;
+          }
+
+        }
+      );
+
+    }
+  );
+
+  // Detecta qué sección está atravesando
+  // la zona principal del viewport.
+  const observer =
+    new IntersectionObserver(
+      (entries) => {
+
+        const visibleEntry =
+          entries
+            .filter(
+              (entry) =>
+                entry.isIntersecting
+            )
+            .sort(
+              (a, b) =>
+                b.intersectionRatio -
+                a.intersectionRatio
+            )[0];
+
+        if (visibleEntry) {
+          setActiveSection(
+            visibleEntry.target.id
+          );
+        }
+
+      },
+      {
+        rootMargin:
+          "-25% 0px -65% 0px",
+
+        threshold: 0
+      }
+    );
+
+  const sectionIds = [
+    "about",
+    "skills",
+    "experience",
+    "education",
+    "projects",
+    "contact"
+  ];
+
+  sectionIds.forEach(
+    (sectionId) => {
+
+      const section =
+        document.getElementById(
+          sectionId
+        );
+
+      if (section) {
+        observer.observe(
+          section
+        );
+      }
+
+    }
+  );
 </script>
 
 <style>
@@ -188,6 +353,35 @@ const baseURL =
       var(--color-primary-soft);
   }
 
+  .desktop-navigation a {
+  position: relative;
+}
+
+.desktop-navigation a.is-active {
+  color:
+    var(--color-primary);
+
+  background:
+    var(--color-primary-soft);
+}
+
+.desktop-navigation a.is-active::after {
+  content: "";
+
+  position: absolute;
+
+  right: 0.85rem;
+  bottom: 4px;
+  left: 0.85rem;
+
+  height: 2px;
+
+  border-radius: 999px;
+
+  background:
+    var(--color-primary);
+}
+
   .mobile-menu {
     display: none;
 
@@ -226,9 +420,12 @@ const baseURL =
     user-select: none;
   }
 
-  .menu-toggle:focus-visible {
-    outline: 3px solid #93c5fd;
-    outline-offset: 3px;
+.menu-toggle:focus-visible {
+  outline:
+    3px solid
+    #93c5fd;
+
+  outline-offset: 3px;
 }
 
   .menu-toggle::-webkit-details-marker {
@@ -344,6 +541,14 @@ const baseURL =
       var(--color-primary-soft);
   }
 
+  .mobile-navigation a.is-active {
+  color:
+    var(--color-primary);
+
+  background:
+    var(--color-primary-soft);
+}
+
   .skip-link {
     position: fixed;
 
@@ -380,7 +585,25 @@ const baseURL =
       translateY(0);
   }
 
-  @media (max-width: 700px) {
+  :global(section[id]) {
+  scroll-margin-top: 90px;
+}
+
+:global(html) {
+  scroll-behavior: smooth;
+}
+
+@media (
+  prefers-reduced-motion:
+  reduce
+) {
+
+  :global(html) {
+    scroll-behavior: auto;
+  }
+
+}
+  @media (max-width: 960px) {
     .navbar {
       min-height: 64px;
 
