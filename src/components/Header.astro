@@ -203,6 +203,7 @@ const navigationItems = [
 
   .desktop-navigation a {
     min-height: 44px;
+    position: relative;
 
     padding: 0.6rem 0.85rem;
 
@@ -227,10 +228,6 @@ const navigationItems = [
     color: var(--color-text);
 
     background: var(--color-primary-soft);
-  }
-
-  .desktop-navigation a {
-    position: relative;
   }
 
   .desktop-navigation a.is-active {
@@ -418,15 +415,7 @@ const navigationItems = [
     scroll-margin-top: 90px;
   }
 
-  :global(html) {
-    scroll-behavior: smooth;
-  }
 
-  @media (prefers-reduced-motion: reduce) {
-    :global(html) {
-      scroll-behavior: auto;
-    }
-  }
   @media (max-width: 960px) {
     .navbar {
       min-height: 64px;

@@ -1,0 +1,129 @@
+---
+interface Props {
+    label: string;
+    value: string;
+    href: string;
+    external?: boolean;
+}
+
+const { label, value, href, external = true } = Astro.props;
+---
+
+<a
+    class="social-link"
+    href={href}
+    target={external ? "_blank" : undefined}
+    rel={external ? "noopener noreferrer" : undefined}
+>
+    <span class="social-content">
+        <span class="social-label">
+            {label}
+        </span>
+
+        <strong>
+            {value}
+        </strong>
+    </span>
+
+    <svg
+        class="social-arrow"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.8"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+    >
+        <path d="M7 17 17 7"></path>
+        <path d="M7 7h10v10"></path>
+    </svg>
+</a>
+
+<style>
+    .social-link {
+        min-height: 82px;
+
+        padding: 1rem 1.15rem;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        gap: 1rem;
+
+        border: 1px solid rgb(148 163 184 / 0.25);
+
+        border-radius: var(--radius-md);
+
+        color: #ffffff;
+
+        background: rgb(255 255 255 / 0.04);
+
+        text-decoration: none;
+
+        transition:
+            background-color var(--transition-fast),
+            border-color var(--transition-fast),
+            transform var(--transition-fast);
+    }
+
+    .social-content {
+        display: grid;
+
+        gap: 0.2rem;
+    }
+
+    .social-label {
+        color: #94a3b8;
+
+        font-size: 0.75rem;
+        font-weight: 700;
+
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+    }
+
+    .social-content strong {
+        font-size: 1rem;
+
+        letter-spacing: -0.01em;
+    }
+
+    .social-arrow {
+        width: 22px;
+        height: 22px;
+
+        flex: 0 0 22px;
+
+        color: #93c5fd;
+
+        transition: transform var(--transition-fast);
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+        .social-link:hover {
+            transform: translateY(-2px);
+
+            border-color: rgb(147 197 253 / 0.6);
+
+            background: rgb(255 255 255 / 0.07);
+        }
+
+        .social-link:hover .social-arrow {
+            transform: translate(2px, -2px);
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .social-link,
+        .social-arrow {
+            transition: none;
+        }
+
+        .social-link:hover,
+        .social-link:hover .social-arrow {
+            transform: none;
+        }
+    }
+</style>

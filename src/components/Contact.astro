@@ -1,10 +1,18 @@
 ---
 import SectionHeader from "./ui/SectionHeader.astro";
+
+import SocialLink from "./ui/SocialLink.astro";
+
+const topics = [
+  "Desarrollo Android",
+  "Arquitectura de software",
+  "Proyectos tecnológicos",
+];
 ---
 
 <section id="contact" class="section contact" aria-labelledby="contact-title">
-  <div class="container">
-    <div class="contact-content">
+  <div class="container contact-grid">
+    <div class="contact-main">
       <SectionHeader
         label="Contacto"
         title="¿Hablamos?"
@@ -14,49 +22,176 @@ import SectionHeader from "./ui/SectionHeader.astro";
         large
       />
 
-      <div class="contact-actions">
-        <a
-          class="button button-secondary"
-          href="https://github.com/josealsola29"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Ver GitHub
-        </a>
+      <div class="contact-topics">
+        <p class="topics-label">Podemos conversar sobre</p>
+
+        <ul>
+          {topics.map((topic) => <li>{topic}</li>)}
+        </ul>
       </div>
     </div>
+
+    <aside class="contact-panel" aria-label="Canales de contacto">
+      <header>
+        <p class="panel-label">Canal principal</p>
+
+        <h3>Encuéntrame en línea</h3>
+      </header>
+
+      <SocialLink
+        label="GitHub"
+        value="@josealsola29"
+        href="https://github.com/josealsola29"
+      />
+
+      <p class="panel-note">
+        Por ahora, GitHub es el canal público disponible directamente desde este
+        portafolio.
+      </p>
+    </aside>
   </div>
 </section>
 
 <style>
   .contact {
+    position: relative;
+
+    overflow: hidden;
+
     color: #ffffff;
 
-    background: var(--color-dark);
+    background:
+      radial-gradient(circle at 85% 20%, rgb(37 99 235 / 0.2), transparent 32%),
+      var(--color-dark);
   }
 
-  .contact-content {
-    max-width: 750px;
-  }
-  
-  .contact-actions {
-    margin-top: 2.5rem;
+  .contact-grid {
+    position: relative;
 
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+
+    grid-template-columns:
+      minmax(0, 1.25fr)
+      minmax(280px, 0.75fr);
+
+    gap: clamp(3rem, 7vw, 6rem);
+
+    align-items: center;
+  }
+
+  .contact-main {
+    min-width: 0;
+  }
+
+  .contact-main :global(.section-header) {
+    margin-bottom: 2.5rem;
+  }
+
+  .contact-topics {
+    display: grid;
 
     gap: 1rem;
   }
 
-  .contact .button-secondary {
-    color: var(--color-dark);
+  .topics-label {
+    margin: 0;
 
-    background: #ffffff;
-    border-color: #ffffff;
+    color: #94a3b8;
+
+    font-size: 0.8rem;
+    font-weight: 700;
+
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
   }
 
-  .contact .button-secondary:hover {
-    background: #e2e8f0;
-    border-color: #e2e8f0;
+  .contact-topics ul {
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 0.65rem;
+
+    list-style: none;
+  }
+
+  .contact-topics li {
+    padding: 0.55rem 0.8rem;
+
+    border: 1px solid rgb(148 163 184 / 0.2);
+
+    border-radius: var(--radius-sm);
+
+    color: #e2e8f0;
+
+    background: rgb(255 255 255 / 0.04);
+
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+
+  .contact-panel {
+    padding: 1.5rem;
+
+    border: 1px solid rgb(148 163 184 / 0.2);
+
+    border-radius: var(--radius-lg);
+
+    background: rgb(15 23 42 / 0.55);
+
+    box-shadow: 0 24px 60px rgb(0 0 0 / 0.18);
+
+    backdrop-filter: blur(10px);
+
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .contact-panel header {
+    margin-bottom: 1.25rem;
+  }
+
+  .panel-label {
+    margin: 0 0 0.35rem;
+
+    color: #93c5fd;
+
+    font-size: 0.75rem;
+    font-weight: 700;
+
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .contact-panel h3 {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: 1.3rem;
+
+    letter-spacing: -0.02em;
+  }
+
+  .panel-note {
+    margin: 1.25rem 0 0;
+
+    color: #94a3b8;
+
+    font-size: 0.85rem;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 800px) {
+    .contact-grid {
+      grid-template-columns: 1fr;
+
+      gap: 2.5rem;
+    }
+
+    .contact-panel {
+      max-width: 520px;
+    }
   }
 </style>
