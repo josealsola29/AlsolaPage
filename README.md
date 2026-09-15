@@ -1,46 +1,171 @@
-# Astro Starter Kit: Basics
+# AlsolaPage
 
-```sh
-npm create astro@latest -- --template basics
-```
+Portafolio personal desarrollado con Astro para presentar mi experiencia, formación, tecnologías y proyectos relacionados con el desarrollo de software.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+El proyecto está enfocado principalmente en desarrollo móvil, Android e ingeniería de software, manteniendo una arquitectura sencilla, rápida, accesible y fácil de mantener.
 
-## 🚀 Project Structure
+## 🚀 Tecnologías
 
-Inside of your Astro project, you'll see the following folders and files:
+- Astro
+- TypeScript
+- HTML semántico
+- CSS
+- Git
+- GitHub
+
+## ✨ Características
+
+- Diseño responsive para escritorio, tablet y dispositivos móviles.
+- Navegación adaptable con menú móvil.
+- Diseño basado en componentes reutilizables.
+- Sistema global de estilos mediante variables CSS.
+- Soporte para navegación por teclado.
+- Compatibilidad con `prefers-reduced-motion`.
+- Secciones independientes para experiencia, educación, tecnologías y proyectos.
+- Datos de proyectos separados de los componentes visuales.
+
+## 📁 Estructura del proyecto
 
 ```text
-/
+AlsolaPage/
 ├── public/
+│   ├── favicon.ico
 │   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+│
+├── src/
+│   ├── components/
+│   │   ├── About.astro
+│   │   ├── Contact.astro
+│   │   ├── Education.astro
+│   │   ├── Experience.astro
+│   │   ├── Footer.astro
+│   │   ├── Header.astro
+│   │   ├── Hero.astro
+│   │   ├── ProjectCard.astro
+│   │   ├── Projects.astro
+│   │   └── Skills.astro
+│   │
+│   ├── data/
+│   │   └── projects.ts
+│   │
+│   ├── layouts/
+│   │   └── MainLayout.astro
+│   │
+│   ├── pages/
+│   │   └── index.astro
+│   │
+│   └── styles/
+│       └── global.css
+│
+├── astro.config.mjs
+├── package.json
+├── tsconfig.json
+└── README.md
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## 🧩 Arquitectura
 
-## 🧞 Commands
+La página principal utiliza componentes independientes para cada sección:
 
-All commands are run from the root of the project, from a terminal:
+```text
+MainLayout
+├── Header
+├── Hero
+├── About
+├── Skills
+├── Experience
+├── Education
+├── Projects
+│   └── ProjectCard
+├── Contact
+└── Footer
+```
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+Los datos de los proyectos se mantienen separados de la interfaz en:
 
-## 👀 Want to learn more?
+```text
+src/data/projects.ts
+```
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Esto permite modificar o añadir proyectos sin tener que alterar directamente los componentes encargados de mostrarlos.
+
+## 🛠️ Instalación
+
+Clona el repositorio:
+
+```bash
+git clone https://github.com/josealsola29/AlsolaPage.git
+```
+
+Entra al proyecto:
+
+```bash
+cd AlsolaPage
+```
+
+Instala las dependencias:
+
+```bash
+npm install
+```
+
+## 💻 Desarrollo
+
+Inicia el servidor local:
+
+```bash
+npm run dev
+```
+
+Astro ejecutará el proyecto normalmente en:
+
+```text
+http://localhost:4321/
+```
+
+## 📦 Build
+
+Para generar la versión de producción:
+
+```bash
+npm run build
+```
+
+El resultado será generado dentro de:
+
+```text
+dist/
+```
+
+Para visualizar localmente el build de producción:
+
+```bash
+npm run preview
+```
+
+## 📌 Estado del proyecto
+
+AlsolaPage se encuentra actualmente en desarrollo.
+
+Las siguientes etapas incluyen mejoras de:
+
+- SEO y metadatos.
+- Open Graph y redes sociales.
+- Configuración de GitHub Pages.
+- Validación automática mediante GitHub Actions.
+- Contenido profesional y proyectos reales.
+- Optimización adicional de accesibilidad y rendimiento.
+
+## 👨‍💻 Autor
+
+**José Alsola**
+
+Desarrollador de software con interés en aplicaciones móviles, Android, arquitectura de software y tecnologías modernas.
+
+GitHub:
+
+https://github.com/josealsola29
+
+---
+
+Desarrollado con [Astro](https://astro.build/).
