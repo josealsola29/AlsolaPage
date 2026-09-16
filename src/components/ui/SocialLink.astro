@@ -14,6 +14,9 @@ const { label, value, href, external = true } = Astro.props;
     href={href}
     target={external ? "_blank" : undefined}
     rel={external ? "noopener noreferrer" : undefined}
+    aria-label={external
+        ? `${label}: ${value}. Abre en una pestaña nueva.`
+        : `${label}: ${value}.`}
 >
     <span class="social-content">
         <span class="social-label">

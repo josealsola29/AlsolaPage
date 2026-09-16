@@ -44,6 +44,7 @@ const { project } = Astro.props;
             href={project.repository}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label={`Ver código de ${project.title} en una pestaña nueva`}
           >
             Código
             <span aria-hidden="true">↗</span>
@@ -56,6 +57,7 @@ const { project } = Astro.props;
             href={project.demo}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label={`Ver ${project.title} en una pestaña nueva`}
           >
             Ver proyecto
             <span aria-hidden="true">↗</span>
