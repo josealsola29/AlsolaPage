@@ -46,7 +46,7 @@ const { project } = Astro.props;
             rel="noopener noreferrer"
           >
             Código
-            <span aria-hidden="true" />
+            <span aria-hidden="true">↗</span>
           </a>
         )}
 
@@ -80,7 +80,7 @@ const { project } = Astro.props;
 
     border: 1px solid var(--color-border);
 
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-lg);
 
     background: var(--color-surface);
 
@@ -142,79 +142,58 @@ const { project } = Astro.props;
   }
 
   .project-links {
-  display: flex;
-  flex-wrap: wrap;
+    display: flex;
+    flex-wrap: wrap;
 
-  gap: 0.75rem;
-}
-
-.project-links a {
-  min-height: 42px;
-
-  padding:
-    0.6rem
-    0.85rem;
-
-  display: inline-flex;
-  align-items: center;
-
-  gap: 0.45rem;
-
-  border:
-    1px solid
-    var(--color-border);
-
-  border-radius:
-      var(--radius-lg);
-
-  color:
-    var(--color-text);
-
-  background:
-    var(--color-surface);
-
-  font-size: 0.9rem;
-  font-weight: 650;
-
-  text-decoration: none;
-
-  transition:
-    border-color var(--transition-fast),
-    background-color var(--transition-fast),
-    transform var(--transition-fast);
-}
-
-.project-links
-  .project-link-primary {
-  color:
-    var(--color-primary-hover);
-
-  border-color:
-    #bfdbfe;
-
-  background:
-    var(--color-primary-soft);
-}
-
-@media (
-  hover: hover
-) and (
-  pointer: fine
-) {
-
-  .project-links a:hover {
-    transform:
-      translateY(-1px);
-
-    border-color:
-      #94a3b8;
+    gap: 0.75rem;
   }
 
-  .project-links
-    .project-link-primary:hover {
-    border-color:
-      var(--color-primary);
+  .project-links a {
+    min-height: 42px;
+
+    padding: 0.6rem 0.85rem;
+
+    display: inline-flex;
+    align-items: center;
+
+    gap: 0.45rem;
+
+    border: 1px solid var(--color-border);
+
+    border-radius: var(--radius-sm);
+
+    color: var(--color-text);
+
+    background: var(--color-surface);
+
+    font-size: 0.9rem;
+    font-weight: 650;
+
+    text-decoration: none;
+
+    transition:
+      border-color var(--transition-fast),
+      background-color var(--transition-fast),
+      transform var(--transition-fast);
   }
 
-}
+  .project-links .project-link-primary {
+    color: var(--color-primary-hover);
+
+    border-color: #bfdbfe;
+
+    background: var(--color-primary-soft);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .project-links a:hover {
+      transform: translateY(-1px);
+
+      border-color: #94a3b8;
+    }
+
+    .project-links .project-link-primary:hover {
+      border-color: var(--color-primary);
+    }
+  }
 </style>
