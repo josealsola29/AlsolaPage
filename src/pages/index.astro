@@ -10,11 +10,15 @@ import Education from "../components/Education.astro";
 import Projects from "../components/Projects.astro";
 import Contact from "../components/Contact.astro";
 import Footer from "../components/Footer.astro";
+
+import {
+  profile
+} from "../data/profile";
 ---
 
 <MainLayout
-  title="José Alsola | Desarrollador de Software"
-  description="Portafolio personal de José Alsola, desarrollador de software especializado en aplicaciones móviles y Android."
+  title={`${profile.name} | ${profile.role}`}
+  description={`Portafolio personal de ${profile.name}, desarrollador de software enfocado en aplicaciones móviles, Android y arquitectura de software.`}
 >
 
   <Header />

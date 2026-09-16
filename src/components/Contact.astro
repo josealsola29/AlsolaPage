@@ -3,6 +3,8 @@ import SectionHeader from "./ui/SectionHeader.astro";
 
 import SocialLink from "./ui/SocialLink.astro";
 
+import { profile } from "../data/profile";
+
 const topics = [
   "Desarrollo Android",
   "Arquitectura de software",
@@ -40,8 +42,8 @@ const topics = [
 
       <SocialLink
         label="GitHub"
-        value="@josealsola29"
-        href="https://github.com/josealsola29"
+        value={profile.github.username}
+        href={profile.github.url}
       />
 
       <p class="panel-note">

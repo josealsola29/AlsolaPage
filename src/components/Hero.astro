@@ -1,13 +1,13 @@
+---
+import { profile } from "../data/profile";
+---
+
 <section class="hero">
-
   <div class="hero-content container">
-
-    <p class="greeting">
-      Hola, soy
-    </p>
+    <p class="greeting">Hola, soy</p>
 
     <h1>
-      José Alsola
+      {profile.name}
     </h1>
 
     <h2>
@@ -16,77 +16,37 @@
     </h2>
 
     <p class="description">
-      Desarrollo soluciones de software con especial
-      interés en aplicaciones móviles, Android y
-      tecnologías modernas.
+      {profile.headline}
     </p>
 
     <div class="actions">
+      <a class="button button-primary" href="#projects"> Ver proyectos </a>
 
-      <a
-        class="button button-primary"
-        href="#projects"
-      >
-        Ver proyectos
-      </a>
-
-      <a
-        class="button button-secondary"
-        href="#contact"
-      >
-        Contactarme
-      </a>
-
+      <a class="button button-secondary" href="#contact"> Contactarme </a>
     </div>
 
     <div class="hero-stack">
+      <p>Tecnologías principales</p>
 
-      <p>
-        Tecnologías principales
-      </p>
-
-      <ul
-        aria-label="Tecnologías principales"
-      >
-
-        <li>
-          Kotlin
-        </li>
-
-        <li>
-          Android
-        </li>
-
-        <li>
-          Jetpack Compose
-        </li>
-
-        <li>
-          Astro
-        </li>
-
+      <ul aria-label="Tecnologías principales">
+        {profile.technologies.map((technology) => <li>{technology}</li>)}
       </ul>
-
     </div>
-
   </div>
-
 </section>
 
 <style>
   .hero {
     position: relative;
 
-    min-height:
-      calc(100vh - 72px);
+    min-height: calc(100vh - 72px);
 
     display: flex;
     align-items: center;
 
     overflow: hidden;
 
-    background:
-      var(--color-background);
+    background: var(--color-background);
   }
 
   .hero::before {
@@ -102,13 +62,12 @@
 
     border-radius: 50%;
 
-    background:
-      radial-gradient(
-        circle,
-        rgb(37 99 235 / 0.14),
-        rgb(37 99 235 / 0.04) 40%,
-        transparent 70%
-      );
+    background: radial-gradient(
+      circle,
+      rgb(37 99 235 / 0.14),
+      rgb(37 99 235 / 0.04) 40%,
+      transparent 70%
+    );
 
     pointer-events: none;
   }
@@ -118,11 +77,7 @@
 
     position: absolute;
 
-    inset:
-      0
-      0
-      auto
-      auto;
+    inset: 0 0 auto auto;
 
     width: 48%;
     height: 100%;
@@ -130,26 +85,12 @@
     opacity: 0.22;
 
     background-image:
-      linear-gradient(
-        rgb(37 99 235 / 0.12) 1px,
-        transparent 1px
-      ),
-      linear-gradient(
-        90deg,
-        rgb(37 99 235 / 0.12) 1px,
-        transparent 1px
-      );
+      linear-gradient(rgb(37 99 235 / 0.12) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(37 99 235 / 0.12) 1px, transparent 1px);
 
-    background-size:
-      42px
-      42px;
+    background-size: 42px 42px;
 
-    mask-image:
-      linear-gradient(
-        to left,
-        black,
-        transparent
-      );
+    mask-image: linear-gradient(to left, black, transparent);
 
     pointer-events: none;
   }
@@ -163,19 +104,14 @@
   }
 
   .greeting {
-    margin:
-      0
-      0
-      0.75rem;
+    margin: 0 0 0.75rem;
 
-    color:
-      var(--color-primary);
+    color: var(--color-primary);
 
     font-size: 1rem;
     font-weight: 700;
 
-    letter-spacing:
-      0.04em;
+    letter-spacing: 0.04em;
   }
 
   h1 {
@@ -183,58 +119,37 @@
 
     max-width: 850px;
 
-    font-size:
-      clamp(
-        3.5rem,
-        9vw,
-        6.5rem
-      );
+    font-size: clamp(3.5rem, 9vw, 6.5rem);
 
     line-height: 0.95;
 
-    letter-spacing:
-      -0.055em;
+    letter-spacing: -0.055em;
   }
 
   h2 {
-    margin:
-      1.25rem
-      0
-      0;
+    margin: 1.25rem 0 0;
 
-    color:
-      var(--color-text-muted);
+    color: var(--color-text-muted);
 
-    font-size:
-      clamp(
-        1.7rem,
-        4vw,
-        2.8rem
-      );
+    font-size: clamp(1.7rem, 4vw, 2.8rem);
 
     font-weight: 500;
 
     line-height: 1.15;
 
-    letter-spacing:
-      -0.03em;
+    letter-spacing: -0.03em;
   }
 
   h2 span {
-    color:
-      var(--color-primary);
+    color: var(--color-primary);
   }
 
   .description {
     max-width: 650px;
 
-    margin:
-      2rem
-      0
-      0;
+    margin: 2rem 0 0;
 
-    color:
-      var(--color-text-muted);
+    color: var(--color-text-muted);
 
     font-size: 1.15rem;
     line-height: 1.8;
@@ -260,16 +175,14 @@
   .hero-stack p {
     margin: 0;
 
-    color:
-      var(--color-text-muted);
+    color: var(--color-text-muted);
 
     font-size: 0.75rem;
     font-weight: 700;
 
     text-transform: uppercase;
 
-    letter-spacing:
-      0.09em;
+    letter-spacing: 0.09em;
   }
 
   .hero-stack ul {
@@ -285,37 +198,25 @@
   }
 
   .hero-stack li {
-    padding:
-      0.5rem
-      0.8rem;
+    padding: 0.5rem 0.8rem;
 
-    border:
-      1px solid
-      var(--color-border);
+    border: 1px solid var(--color-border);
 
-    border-radius:
-      var(--radius-sm);
+    border-radius: var(--radius-sm);
 
-    color:
-      var(--color-text-muted);
+    color: var(--color-text-muted);
 
-    background:
-      rgb(255 255 255 / 0.75);
+    background: rgb(255 255 255 / 0.75);
 
     font-size: 0.9rem;
     font-weight: 600;
 
-    backdrop-filter:
-      blur(5px);
+    backdrop-filter: blur(5px);
 
-    -webkit-backdrop-filter:
-      blur(5px);
+    -webkit-backdrop-filter: blur(5px);
   }
 
-  @media (
-    max-width: 600px
-  ) {
-
+  @media (max-width: 600px) {
     .hero {
       min-height: auto;
     }
@@ -339,12 +240,7 @@
     }
 
     h1 {
-      font-size:
-        clamp(
-          3.2rem,
-          15vw,
-          4.5rem
-        );
+      font-size: clamp(3.2rem, 15vw, 4.5rem);
     }
 
     .actions {
@@ -357,6 +253,5 @@
     .hero-stack {
       margin-top: 2.5rem;
     }
-
   }
 </style>

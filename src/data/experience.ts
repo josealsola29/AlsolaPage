@@ -10,7 +10,7 @@ export const experiences:
   ExperienceItem[] = [
   {
     role:
-      "Desarrollador de aplicaciones móviles",
+      "Desarrollo Android y soporte tecnológico",
 
     organization:
       "Proyectos de software",
@@ -19,35 +19,15 @@ export const experiences:
       "Actualidad",
 
     description:
-      "Desarrollo y mantenimiento de aplicaciones orientadas a procesos de captura, consulta y sincronización de información.",
+      "Desarrollo y soporte de soluciones móviles utilizadas en procesos de captura, consulta y sincronización de información para operaciones de campo.",
 
     highlights: [
-      "Desarrollo Android con Kotlin.",
-      "Interfaces modernas con Jetpack Compose.",
-      "Integración con APIs REST.",
-      "Persistencia y funcionamiento offline.",
-      "Aplicación de principios de arquitectura limpia."
-    ]
-  },
-
-  {
-    role:
-      "Soporte técnico y capacitación",
-
-    organization:
-      "Proyectos tecnológicos",
-
-    period:
-      "Experiencia profesional",
-
-    description:
-      "Apoyo técnico a usuarios, capacitación y resolución de incidencias relacionadas con herramientas y aplicaciones utilizadas en operaciones de campo.",
-
-    highlights: [
-      "Capacitación de usuarios.",
-      "Resolución de incidencias.",
-      "Documentación de procesos.",
-      "Soporte a aplicaciones móviles."
+      "Desarrollo de aplicaciones Android con Kotlin y Jetpack Compose.",
+      "Implementación de funcionamiento offline y persistencia local.",
+      "Integración con APIs REST y procesos de sincronización.",
+      "Soporte técnico a usuarios y dispositivos utilizados en operaciones de campo.",
+      "Resolución de incidencias y apoyo en procesos de actualización de aplicaciones.",
+      "Aplicación de principios de arquitectura limpia y separación de responsabilidades."
     ]
   }
 ];
