@@ -9,24 +9,24 @@ export const education:
   EducationItem[] = [
   {
     title:
-      "Formación en Ingeniería de Software",
+      "Maestría en Ingeniería de Software",
 
     institution:
-      "Formación universitaria y de posgrado",
+      "Universidad Tecnológica de Panamá",
 
     description:
-      "Estudios orientados al diseño, desarrollo, arquitectura y gestión de soluciones de software."
+      "Formación de posgrado orientada a ingeniería de software, arquitectura, gestión de proyectos, producción de software y desarrollo de soluciones tecnológicas."
   },
 
   {
     title:
-      "Desarrollo de Software",
+      "Especialización en Ingeniería de Software",
 
     institution:
-      "Formación universitaria",
+      "Universidad Tecnológica de Panamá",
 
     description:
-      "Fundamentos de programación, bases de datos, análisis, diseño y construcción de sistemas."
+      "Formación especializada en principios, metodologías y prácticas aplicadas al desarrollo y gestión de software."
   },
 
   {
@@ -34,9 +34,9 @@ export const education:
       "Formación continua",
 
     institution:
-      "Cursos y aprendizaje profesional",
+      "Desarrollo profesional",
 
     description:
-      "Actualización constante en Android, Kotlin, arquitectura de software y tecnologías modernas."
+      "Aprendizaje continuo en Android, Kotlin, Jetpack Compose, arquitectura de software, desarrollo multiplataforma y tecnologías web."
   }
 ];
