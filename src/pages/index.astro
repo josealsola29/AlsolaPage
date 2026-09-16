@@ -11,20 +11,16 @@ import Projects from "../components/Projects.astro";
 import Contact from "../components/Contact.astro";
 import Footer from "../components/Footer.astro";
 
-import {
-  profile
-} from "../data/profile";
+import { profile } from "../data/profile";
 ---
 
 <MainLayout
   title={`${profile.name} | ${profile.role}`}
   description={`Portafolio personal de ${profile.name}, desarrollador de software enfocado en aplicaciones móviles, Android y arquitectura de software.`}
 >
-
   <Header />
-  
-  <main id="main-content">
 
+  <main id="main-content">
     <Hero />
 
     <About />
@@ -38,9 +34,7 @@ import {
     <Projects />
 
     <Contact />
-
   </main>
 
   <Footer />
-
 </MainLayout>
