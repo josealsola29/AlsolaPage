@@ -4,7 +4,6 @@ import SectionHeader from "./ui/SectionHeader.astro";
 import EducationCard from "./ui/EducationCard.astro";
 
 import { education } from "../data/education";
-
 ---
 
 <section id="education" class="section" aria-labelledby="education-title">
@@ -17,17 +16,15 @@ import { education } from "../data/education";
     />
 
     <div class="education-grid">
-      {
-        education.map((item, index) => (
-          <EducationCard
-            index={index + 1}
-            title={item.title}
-            institution={item.institution}
-            period={item.period}
-            description={item.description}
-          />
-        ))
-      }
+      {education.map((item, index) => (
+        <EducationCard
+          index={index + 1}
+          title={item.title}
+          institution={item.institution}
+          period={item.period}
+          description={item.description}
+        />
+      ))}
     </div>
   </div>
 </section>
@@ -36,10 +33,7 @@ import { education } from "../data/education";
   .education-grid {
     display: grid;
 
-    grid-template-columns: repeat(auto-fit, minmax(
-        min(260px, 100%),
-        1fr
-      ));
+    grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
 
     gap: 1.5rem;
   }

@@ -6,17 +6,13 @@ export interface ExperienceItem {
   highlights: string[];
 }
 
-export const experiences:
-  ExperienceItem[] = [
+export const experiences: ExperienceItem[] = [
   {
-    role:
-      "Desarrollo Android y soporte tecnológico",
+    role: "Desarrollo Android y soporte tecnológico",
 
-    organization:
-      "Proyectos de software",
+    organization: "Proyectos de software",
 
-    period:
-      "Actualidad",
+    period: "Actualidad",
 
     description:
       "Desarrollo y soporte de soluciones móviles utilizadas en procesos de captura, consulta y sincronización de información para operaciones de campo.",
@@ -27,7 +23,7 @@ export const experiences:
       "Integración con APIs REST y procesos de sincronización.",
       "Soporte técnico a usuarios y dispositivos utilizados en operaciones de campo.",
       "Resolución de incidencias y apoyo en procesos de actualización de aplicaciones.",
-      "Aplicación de principios de arquitectura limpia y separación de responsabilidades."
-    ]
-  }
+      "Aplicación de principios de arquitectura limpia y separación de responsabilidades.",
+    ],
+  },
 ];

@@ -21,24 +21,18 @@ const { title, description, skills, icon } = Astro.props;
     </div>
 
     <div>
-      <h3>
-        {title}
-      </h3>
+      <h3>{title}</h3>
 
-      <p class="description">
-        {description}
-      </p>
+      <p class="description">{description}</p>
     </div>
   </div>
 
   <ul class="skills">
-    {
-      skills.map((skill) => (
-        <li>
-          <TechBadge name={skill} />
-        </li>
-      ))
-    }
+    {skills.map((skill) => (
+      <li>
+        <TechBadge name={skill} />
+      </li>
+    ))}
   </ul>
 </article>
 

@@ -30,7 +30,10 @@ const navigationItems = [
 ---
 
 <header class="header">
-  <a class="skip-link" href="#main-content"> Saltar al contenido </a>
+  <a class="skip-link" href="#main-content">
+    {" "}
+    Saltar al contenido{" "}
+  </a>
 
   <nav class="navbar container" aria-label="Navegación principal">
     <a class="logo" href={baseURL} aria-label="Ir al inicio">
@@ -39,13 +42,11 @@ const navigationItems = [
     </a>
 
     <div class="desktop-navigation">
-      {
-        navigationItems.map((item) => (
-          <a href={`#${item.section}`} data-nav-section={item.section}>
-            {item.label}
-          </a>
-        ))
-      }
+      {navigationItems.map((item) => (
+        <a href={`#${item.section}`} data-nav-section={item.section}>
+          {item.label}
+        </a>
+      ))}
     </div>
 
     <details class="mobile-menu">
@@ -60,133 +61,70 @@ const navigationItems = [
       </summary>
 
       <div class="mobile-navigation">
-        {
-          navigationItems.map((item) => (
-            <a href={`#${item.section}`} data-nav-section={item.section}>
-              {item.label}
-            </a>
-          ))
-        }
+        {navigationItems.map((item) => (
+          <a href={`#${item.section}`} data-nav-section={item.section}>
+            {item.label}
+          </a>
+        ))}
       </div>
     </details>
   </nav>
 </header>
 
 <script>
-  const mobileMenu =
-    document.querySelector(
-      ".mobile-menu"
-    );
+  const mobileMenu = document.querySelector(".mobile-menu");
 
-  const navigationLinks =
-    document.querySelectorAll(
-      "[data-nav-section]"
-    );
+  const navigationLinks = document.querySelectorAll("[data-nav-section]");
 
-  const sectionIds = [
-    "about",
-    "skills",
-    "experience",
-    "education",
-    "projects",
-    "contact",
-  ];
+  const sectionIds = ["about", "skills", "experience", "education", "projects", "contact"];
 
   const sections = sectionIds
-    .map(
-      (sectionId) =>
-        document.getElementById(
-          sectionId
-        )
-    )
-    .filter(
-      (
-        section
-      ): section is HTMLElement =>
-        section instanceof HTMLElement
-    );
+    .map((sectionId) => document.getElementById(sectionId))
+    .filter((section): section is HTMLElement => section instanceof HTMLElement);
 
   // Marca visualmente la sección activa.
-  const setActiveSection = (
-    sectionId: string | null
-  ) => {
-    navigationLinks.forEach(
-      (link) => {
-        if (
-          !(
-            link instanceof
-            HTMLAnchorElement
-          )
-        ) {
-          return;
-        }
-
-        const isActive =
-          sectionId !== null &&
-          link.dataset.navSection ===
-            sectionId;
-
-        link.classList.toggle(
-          "is-active",
-          isActive
-        );
-
-        if (isActive) {
-          link.setAttribute(
-            "aria-current",
-            "location"
-          );
-        } else {
-          link.removeAttribute(
-            "aria-current"
-          );
-        }
+  const setActiveSection = (sectionId: string | null) => {
+    navigationLinks.forEach((link) => {
+      if (!(link instanceof HTMLAnchorElement)) {
+        return;
       }
-    );
+
+      const isActive = sectionId !== null && link.dataset.navSection === sectionId;
+
+      link.classList.toggle("is-active", isActive);
+
+      if (isActive) {
+        link.setAttribute("aria-current", "location");
+      } else {
+        link.removeAttribute("aria-current");
+      }
+    });
   };
 
   // Detecta si el usuario llegó
   // prácticamente al final del documento.
   const isAtPageBottom = () =>
-    window.scrollY +
-      window.innerHeight >=
-    document.documentElement
-      .scrollHeight -
-      4;
+    window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 4;
 
   // Determina qué sección atraviesa
   // una línea virtual dentro del viewport.
   const updateActiveSection = () => {
     if (isAtPageBottom()) {
-      setActiveSection(
-        "contact"
-      );
+      setActiveSection("contact");
 
       return;
     }
 
-    const viewportMarker =
-      window.innerHeight * 0.32;
+    const viewportMarker = window.innerHeight * 0.32;
 
-    const activeSection =
-      sections.find(
-        (section) => {
-          const rect =
-            section.getBoundingClientRect();
+    const activeSection = sections.find((section) => {
+      const rect = section.getBoundingClientRect();
 
-          return (
-            rect.top <=
-              viewportMarker &&
-            rect.bottom >
-              viewportMarker
-          );
-        }
-      );
+      return rect.top <= viewportMarker && rect.bottom > viewportMarker;
+    });
 
     if (activeSection) {
-      setActiveSection(
-        activeSection.id
-      );
+      setActiveSection(activeSection.id);
 
       return;
     }
@@ -198,126 +136,74 @@ const navigationItems = [
 
   let updateScheduled = false;
 
-  const scheduleActiveUpdate =
-    () => {
-      if (updateScheduled) {
-        return;
-      }
+  const scheduleActiveUpdate = () => {
+    if (updateScheduled) {
+      return;
+    }
 
-      updateScheduled = true;
+    updateScheduled = true;
 
-      window.requestAnimationFrame(
-        () => {
-          updateActiveSection();
+    window.requestAnimationFrame(() => {
+      updateActiveSection();
 
-          updateScheduled = false;
-        }
-      );
-    };
+      updateScheduled = false;
+    });
+  };
 
   // Cierra el menú móvil y actualiza
   // inmediatamente el enlace seleccionado.
-  navigationLinks.forEach(
-    (link) => {
-      link.addEventListener(
-        "click",
-        () => {
-          if (
-            link instanceof
-            HTMLAnchorElement
-          ) {
-            const sectionId =
-              link.dataset.navSection;
+  navigationLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      if (link instanceof HTMLAnchorElement) {
+        const sectionId = link.dataset.navSection;
 
-            if (sectionId) {
-              setActiveSection(
-                sectionId
-              );
-            }
-          }
-
-          if (
-            mobileMenu instanceof
-            HTMLDetailsElement
-          ) {
-            mobileMenu.open =
-              false;
-          }
+        if (sectionId) {
+          setActiveSection(sectionId);
         }
-      );
-    }
-  );
+      }
+
+      if (mobileMenu instanceof HTMLDetailsElement) {
+        mobileMenu.open = false;
+      }
+    });
+  });
 
   // Permite cerrar el menú móvil
   // utilizando la tecla Escape.
-  document.addEventListener(
-    "keydown",
-    (event) => {
-      if (
-        event.key !== "Escape" ||
-        !(
-          mobileMenu instanceof
-          HTMLDetailsElement
-        ) ||
-        !mobileMenu.open
-      ) {
-        return;
-      }
-
-      mobileMenu.open = false;
-
-      const menuToggle =
-        mobileMenu.querySelector(
-          "summary"
-        );
-
-      if (
-        menuToggle instanceof
-        HTMLElement
-      ) {
-        menuToggle.focus();
-      }
+  document.addEventListener("keydown", (event) => {
+    if (event.key !== "Escape" || !(mobileMenu instanceof HTMLDetailsElement) || !mobileMenu.open) {
+      return;
     }
-  );
+
+    mobileMenu.open = false;
+
+    const menuToggle = mobileMenu.querySelector("summary");
+
+    if (menuToggle instanceof HTMLElement) {
+      menuToggle.focus();
+    }
+  });
 
   // Cierra el menú si el usuario
   // pulsa fuera de él.
-  document.addEventListener(
-    "click",
-    (event) => {
-      if (
-        !(
-          mobileMenu instanceof
-          HTMLDetailsElement
-        ) ||
-        !mobileMenu.open ||
-        !(
-          event.target instanceof
-          Node
-        ) ||
-        mobileMenu.contains(
-          event.target
-        )
-      ) {
-        return;
-      }
-
-      mobileMenu.open = false;
+  document.addEventListener("click", (event) => {
+    if (
+      !(mobileMenu instanceof HTMLDetailsElement) ||
+      !mobileMenu.open ||
+      !(event.target instanceof Node) ||
+      mobileMenu.contains(event.target)
+    ) {
+      return;
     }
-  );
 
-  window.addEventListener(
-    "scroll",
-    scheduleActiveUpdate,
-    {
-      passive: true,
-    }
-  );
+    mobileMenu.open = false;
+  });
 
-  window.addEventListener(
-    "resize",
-    scheduleActiveUpdate
-  );
+  window.addEventListener("scroll", scheduleActiveUpdate, {
+    passive: true,
+  });
+
+  window.addEventListener("resize", scheduleActiveUpdate);
 
   scheduleActiveUpdate();
 </script>
@@ -585,7 +471,6 @@ const navigationItems = [
   :global(section[id]) {
     scroll-margin-top: 90px;
   }
-
 
   @media (max-width: 960px) {
     .navbar {

@@ -12,8 +12,8 @@ export default defineConfig({
         news: false,
         xhtml: false,
         image: false,
-        video: false
-      }
-    })
-  ]
+        video: false,
+      },
+    }),
+  ],
 });

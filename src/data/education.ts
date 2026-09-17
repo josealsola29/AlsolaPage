@@ -5,38 +5,31 @@ export interface EducationItem {
   description?: string;
 }
 
-export const education:
-  EducationItem[] = [
+export const education: EducationItem[] = [
   {
-    title:
-      "Maestría en Ingeniería de Software",
+    title: "Maestría en Ingeniería de Software",
 
-    institution:
-      "Universidad Tecnológica de Panamá",
+    institution: "Universidad Tecnológica de Panamá",
 
     description:
-      "Formación de posgrado orientada a ingeniería de software, arquitectura, gestión de proyectos, producción de software y desarrollo de soluciones tecnológicas."
+      "Formación de posgrado orientada a ingeniería de software, arquitectura, gestión de proyectos, producción de software y desarrollo de soluciones tecnológicas.",
   },
 
   {
-    title:
-      "Especialización en Ingeniería de Software",
+    title: "Especialización en Ingeniería de Software",
 
-    institution:
-      "Universidad Tecnológica de Panamá",
+    institution: "Universidad Tecnológica de Panamá",
 
     description:
-      "Formación especializada en principios, metodologías y prácticas aplicadas al desarrollo y gestión de software."
+      "Formación especializada en principios, metodologías y prácticas aplicadas al desarrollo y gestión de software.",
   },
 
   {
-    title:
-      "Formación continua",
+    title: "Formación continua",
 
-    institution:
-      "Desarrollo profesional",
+    institution: "Desarrollo profesional",
 
     description:
-      "Aprendizaje continuo en Android, Kotlin, Jetpack Compose, arquitectura de software, desarrollo multiplataforma y tecnologías web."
-  }
+      "Aprendizaje continuo en Android, Kotlin, Jetpack Compose, arquitectura de software, desarrollo multiplataforma y tecnologías web.",
+  },
 ];

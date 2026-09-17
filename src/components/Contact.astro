@@ -5,11 +5,7 @@ import SocialLink from "./ui/SocialLink.astro";
 
 import { profile } from "../data/profile";
 
-const topics = [
-  "Desarrollo Android",
-  "Arquitectura de software",
-  "Proyectos tecnológicos",
-];
+const topics = ["Desarrollo Android", "Arquitectura de software", "Proyectos tecnológicos"];
 ---
 
 <section id="contact" class="section contact" aria-labelledby="contact-title">
@@ -28,7 +24,9 @@ const topics = [
         <p class="topics-label">Podemos conversar sobre</p>
 
         <ul>
-          {topics.map((topic) => <li>{topic}</li>)}
+          {topics.map((topic) => (
+            <li>{topic}</li>
+          ))}
         </ul>
       </div>
     </div>
@@ -40,15 +38,10 @@ const topics = [
         <h3>Encuéntrame en línea</h3>
       </header>
 
-      <SocialLink
-        label="GitHub"
-        value={profile.github.username}
-        href={profile.github.url}
-      />
+      <SocialLink label="GitHub" value={profile.github.username} href={profile.github.url} />
 
       <p class="panel-note">
-        Por ahora, GitHub es el canal público disponible directamente desde este
-        portafolio.
+        Por ahora, GitHub es el canal público disponible directamente desde este portafolio.
       </p>
     </aside>
   </div>
@@ -63,8 +56,7 @@ const topics = [
     color: #ffffff;
 
     background:
-      radial-gradient(circle at 85% 20%, rgb(37 99 235 / 0.2), transparent 32%),
-      var(--color-dark);
+      radial-gradient(circle at 85% 20%, rgb(37 99 235 / 0.2), transparent 32%), var(--color-dark);
   }
 
   .contact-grid {

@@ -10,18 +10,16 @@ const technologies = profile.technologies.slice(0, 3);
   <div class="card-decoration" aria-hidden="true"></div>
 
   <header class="identity">
-    <div class="monogram" aria-hidden="true">JA</div>
+    <div class="monogram" aria-hidden="true">
+      JA
+    </div>
 
     <div>
       <p class="profile-label">Perfil</p>
 
-      <h3>
-        {profile.name}
-      </h3>
+      <h3>{profile.name}</h3>
 
-      <p class="role">
-        {profile.role}
-      </p>
+      <p class="role">{profile.role}</p>
     </div>
   </header>
 
@@ -29,28 +27,22 @@ const technologies = profile.technologies.slice(0, 3);
     <div>
       <dt>Enfoque</dt>
 
-      <dd>
-        {profile.focus}
-      </dd>
+      <dd>{profile.focus}</dd>
     </div>
 
     <div>
       <dt>Prioridad</dt>
 
-      <dd>
-        {profile.priority}
-      </dd>
+      <dd>{profile.priority}</dd>
     </div>
   </dl>
 
   <ul class="technologies" aria-label="Tecnologías principales">
-    {
-      technologies.map((technology) => (
-        <li>
-          <TechBadge name={technology} />
-        </li>
-      ))
-    }
+    {technologies.map((technology) => (
+      <li>
+        <TechBadge name={technology} />
+      </li>
+    ))}
   </ul>
 
   <div class="profile-note">

@@ -6,30 +6,34 @@ import { profile } from "../data/profile";
   <div class="hero-content container">
     <p class="greeting">Hola, soy</p>
 
-    <h1>
-      {profile.name}
-    </h1>
+    <h1>{profile.name}</h1>
 
     <h2>
       Desarrollador de
       <span>Software</span>
     </h2>
 
-    <p class="description">
-      {profile.headline}
-    </p>
+    <p class="description">{profile.headline}</p>
 
     <div class="actions">
-      <a class="button button-primary" href="#projects"> Ver proyectos </a>
+      <a class="button button-primary" href="#projects">
+        {" "}
+        Ver proyectos{" "}
+      </a>
 
-      <a class="button button-secondary" href="#contact"> Contactarme </a>
+      <a class="button button-secondary" href="#contact">
+        {" "}
+        Contactarme{" "}
+      </a>
     </div>
 
     <div class="hero-stack">
       <p>Tecnologías principales</p>
 
       <ul aria-label="Tecnologías principales">
-        {profile.technologies.map((technology) => <li>{technology}</li>)}
+        {profile.technologies.map((technology) => (
+          <li>{technology}</li>
+        ))}
       </ul>
     </div>
   </div>

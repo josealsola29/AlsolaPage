@@ -14,58 +14,47 @@ const { project } = Astro.props;
   <div class="project-content">
     {project.featured && <p class="featured">Proyecto destacado</p>}
 
-    <h3>
-      {project.title}
-    </h3>
+    <h3>{project.title}</h3>
 
-    <p class="description">
-      {project.description}
-    </p>
+    <p class="description">{project.description}</p>
 
-    <ul
-      class="technologies"
-      aria-label={`Tecnologías utilizadas en ${project.title}`}
-    >
-      {
-        project.technologies.map((technology) => (
-          <li>
-            <TechBadge name={technology} />
-          </li>
-        ))
-      }
+    <ul class="technologies" aria-label={`Tecnologías utilizadas en ${project.title}`}>
+      {project.technologies.map((technology) => (
+        <li>
+          <TechBadge name={technology} />
+        </li>
+      ))}
     </ul>
   </div>
 
-  {
-    (project.repository || project.demo) && (
-      <div class="project-links">
-        {project.repository && (
-          <a
-            href={project.repository}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={`Ver código de ${project.title} en una pestaña nueva`}
-          >
-            Código
-            <span aria-hidden="true">↗</span>
-          </a>
-        )}
+  {(project.repository || project.demo) && (
+    <div class="project-links">
+      {project.repository && (
+        <a
+          href={project.repository}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`Ver código de ${project.title} en una pestaña nueva`}
+        >
+          Código
+          <span aria-hidden="true">↗</span>
+        </a>
+      )}
 
-        {project.demo && (
-          <a
-            class="project-link-primary"
-            href={project.demo}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={`Ver ${project.title} en una pestaña nueva`}
-          >
-            Ver proyecto
-            <span aria-hidden="true">↗</span>
-          </a>
-        )}
-      </div>
-    )
-  }
+      {project.demo && (
+        <a
+          class="project-link-primary"
+          href={project.demo}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`Ver ${project.title} en una pestaña nueva`}
+        >
+          Ver proyecto
+          <span aria-hidden="true">↗</span>
+        </a>
+      )}
+    </div>
+  )}
 </article>
 
 <style>
@@ -200,20 +189,20 @@ const { project } = Astro.props;
   }
 
   @media (max-width: 420px) {
-  .project-card {
-    padding: 1.5rem;
+    .project-card {
+      padding: 1.5rem;
 
-    gap: 1.5rem;
+      gap: 1.5rem;
+    }
+
+    .project-links {
+      flex-direction: column;
+    }
+
+    .project-links a {
+      width: 100%;
+
+      justify-content: center;
+    }
   }
-
-  .project-links {
-    flex-direction: column;
-  }
-
-  .project-links a {
-    width: 100%;
-
-    justify-content: center;
-  }
-}
 </style>

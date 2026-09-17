@@ -20,9 +20,7 @@
   --radius-md: 12px;
   --radius-lg: 18px;
 
-  --shadow-sm:
-    0 1px 2px rgb(15 23 42 / 0.04),
-    0 1px 3px rgb(15 23 42 / 0.08);
+  --shadow-sm: 0 1px 2px rgb(15 23 42 / 0.04), 0 1px 3px rgb(15 23 42 / 0.08);
 
   --transition-fast: 180ms ease;
 }
@@ -80,10 +78,7 @@ img {
 }
 
 .container {
-  width: min(
-    calc(100% - 4rem),
-    var(--container-width)
-  );
+  width: min(calc(100% - 4rem), var(--container-width));
 
   margin-inline: auto;
 }
@@ -153,7 +148,7 @@ img {
     color var(--transition-fast),
     transform var(--transition-fast);
 }
- 
+
 @media (hover: hover) and (pointer: fine) {
   .button:hover {
     transform: translateY(-1px);
@@ -186,13 +181,9 @@ button:focus-visible {
   outline-offset: 3px;
 }
 
-
 @media (max-width: 700px) {
   .container {
-    width: min(
-      calc(100% - 3rem),
-      var(--container-width)
-    );
+    width: min(calc(100% - 3rem), var(--container-width));
   }
 
   .section {
@@ -202,10 +193,7 @@ button:focus-visible {
 
 @media (max-width: 420px) {
   .container {
-    width: min(
-      calc(100% - 2rem),
-      var(--container-width)
-    );
+    width: min(calc(100% - 2rem), var(--container-width));
   }
 
   .section {

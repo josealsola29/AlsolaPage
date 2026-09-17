@@ -4,11 +4,7 @@ import SectionHeader from "./ui/SectionHeader.astro";
 import { experiences } from "../data/experience";
 ---
 
-<section
-  id="experience"
-  class="section section-alt"
-  aria-labelledby="experience-title"
->
+<section id="experience" class="section section-alt" aria-labelledby="experience-title">
   <div class="container">
     <SectionHeader
       label="Trayectoria"
@@ -18,33 +14,31 @@ import { experiences } from "../data/experience";
     />
 
     <ol class="experience-timeline" aria-label="Trayectoria profesional">
-      {
-        experiences.map((experience) => (
-          <li class="timeline-item">
-            <p class="period">{experience.period}</p>
+      {experiences.map((experience) => (
+        <li class="timeline-item">
+          <p class="period">{experience.period}</p>
 
-            <div class="timeline-track" aria-hidden="true">
-              <span class="timeline-dot" />
-            </div>
+          <div class="timeline-track" aria-hidden="true">
+            <span class="timeline-dot" />
+          </div>
 
-            <article class="experience-card">
-              <header class="experience-heading">
-                <h3>{experience.role}</h3>
+          <article class="experience-card">
+            <header class="experience-heading">
+              <h3>{experience.role}</h3>
 
-                <p class="organization">{experience.organization}</p>
-              </header>
+              <p class="organization">{experience.organization}</p>
+            </header>
 
-              <p class="description">{experience.description}</p>
+            <p class="description">{experience.description}</p>
 
-              <ul class="highlights">
-                {experience.highlights.map((highlight) => (
-                  <li>{highlight}</li>
-                ))}
-              </ul>
-            </article>
-          </li>
-        ))
-      }
+            <ul class="highlights">
+              {experience.highlights.map((highlight) => (
+                <li>{highlight}</li>
+              ))}
+            </ul>
+          </article>
+        </li>
+      ))}
     </ol>
   </div>
 </section>

@@ -6,11 +6,7 @@ import SectionHeader from "./ui/SectionHeader.astro";
 import { projects } from "../data/projects";
 ---
 
-<section
-  id="projects"
-  class="section section-alt"
-  aria-labelledby="projects-title"
->
+<section id="projects" class="section section-alt" aria-labelledby="projects-title">
   <div class="container">
     <SectionHeader
       label="Trabajo"
@@ -20,7 +16,9 @@ import { projects } from "../data/projects";
     />
 
     <div class="projects-grid">
-      {projects.map((project) => <ProjectCard project={project} />)}
+      {projects.map((project) => (
+        <ProjectCard project={project} />
+      ))}
     </div>
   </div>
 </section>
