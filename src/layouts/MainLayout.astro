@@ -95,7 +95,7 @@ const personSchema = {
 
     <meta name="twitter:image:alt" content={socialImageAlt} />
 
-    <script type="application/ld+json" set:html={JSON.stringify(personSchema)}></script>
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(personSchema)}></script>
   </head>
 
   <body>
