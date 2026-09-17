@@ -39,7 +39,7 @@ jobs:
       - name: Build and upload Astro site
         uses: withastro/action@v5
         with:
-          node-version: "22.12.0"
+          node-version: "22.19.0"
 
   deploy:
     name: Deploy site
