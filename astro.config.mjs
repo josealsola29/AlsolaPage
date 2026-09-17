@@ -5,6 +5,7 @@ import sitemap from "@astrojs/sitemap";
 export default defineConfig({
   site: "https://josealsola29.github.io",
   base: "/AlsolaPage",
+  trailingSlash: "always",
 
   integrations: [
     sitemap({
