@@ -12,28 +12,22 @@ const { name } = Astro.props;
 
 <style>
   .tech-badge {
+    max-width: 100%;
 
-     max-width: 100%;
-     
-    padding:
-      0.5rem
-      0.8rem;
+    overflow-wrap: anywhere;
+
+    padding: 0.5rem 0.8rem;
 
     display: inline-flex;
     align-items: center;
 
-    border:
-      1px solid
-      transparent;
+    border: 1px solid transparent;
 
-    border-radius:
-      var(--radius-sm);
+    border-radius: var(--radius-sm);
 
-    color:
-      var(--color-primary-hover);
+    color: var(--color-primary-hover);
 
-    background:
-      var(--color-primary-soft);
+    background: var(--color-primary-soft);
 
     font-size: 0.9rem;
     font-weight: 600;
@@ -41,9 +35,7 @@ const { name } = Astro.props;
     line-height: 1.2;
 
     transition:
-      border-color
-      var(--transition-fast),
-      background-color
-      var(--transition-fast);
+      border-color var(--transition-fast),
+      background-color var(--transition-fast);
   }
 </style>
