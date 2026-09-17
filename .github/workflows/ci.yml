@@ -33,7 +33,7 @@ jobs:
 
       - name: Audit dependencies
         run: npm run audit
-        
+
       - name: Check formatting
         run: npm run format:check
 
