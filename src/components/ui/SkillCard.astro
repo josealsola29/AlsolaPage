@@ -2,10 +2,7 @@
 import Icon from "./Icon.astro";
 import TechBadge from "./TechBadge.astro";
 
-type SkillIcon =
-  | "mobile"
-  | "architecture"
-  | "web";
+type SkillIcon = "mobile" | "architecture" | "web";
 
 interface Props {
   title: string;
@@ -14,26 +11,16 @@ interface Props {
   icon: SkillIcon;
 }
 
-const {
-  title,
-  description,
-  skills,
-  icon
-} = Astro.props;
+const { title, description, skills, icon } = Astro.props;
 ---
 
 <article class="skill-card">
-
   <div class="skill-card-header">
-
     <div class="skill-icon">
-
       <Icon name={icon} />
-
     </div>
 
     <div>
-
       <h3>
         {title}
       </h3>
@@ -41,13 +28,10 @@ const {
       <p class="description">
         {description}
       </p>
-
     </div>
-
   </div>
 
   <ul class="skills">
-
     {
       skills.map((skill) => (
         <li>
@@ -55,9 +39,7 @@ const {
         </li>
       ))
     }
-
   </ul>
-
 </article>
 
 <style>
@@ -70,18 +52,13 @@ const {
 
     overflow: hidden;
 
-    border:
-      1px solid
-      var(--color-border);
+    border: 1px solid var(--color-border);
 
-    border-radius:
-      var(--radius-lg);
+    border-radius: var(--radius-lg);
 
-    background:
-      var(--color-surface);
+    background: var(--color-surface);
 
-    box-shadow:
-      var(--shadow-sm);
+    box-shadow: var(--shadow-sm);
 
     transition:
       transform var(--transition-fast),
@@ -100,12 +77,7 @@ const {
     width: 100%;
     height: 3px;
 
-    background:
-      linear-gradient(
-        90deg,
-        var(--color-primary),
-        #60a5fa
-      );
+    background: linear-gradient(90deg, var(--color-primary), #60a5fa);
   }
 
   .skill-card-header {
@@ -125,14 +97,11 @@ const {
     display: grid;
     place-items: center;
 
-    border-radius:
-      var(--radius-md);
+    border-radius: var(--radius-md);
 
-    color:
-      var(--color-primary);
+    color: var(--color-primary);
 
-    background:
-      var(--color-primary-soft);
+    background: var(--color-primary-soft);
   }
 
   h3 {
@@ -140,28 +109,20 @@ const {
 
     font-size: 1.25rem;
 
-    letter-spacing:
-      -0.015em;
+    letter-spacing: -0.015em;
   }
 
   .description {
-    margin:
-      0.55rem
-      0
-      0;
+    margin: 0.55rem 0 0;
 
-    color:
-      var(--color-text-muted);
+    color: var(--color-text-muted);
 
     font-size: 0.95rem;
     line-height: 1.6;
   }
 
   .skills {
-    margin:
-      1.75rem
-      0
-      0;
+    margin: 1.75rem 0 0;
 
     padding: 0;
 
@@ -173,31 +134,17 @@ const {
     list-style: none;
   }
 
-  @media (
-    hover: hover
-  ) and (
-    pointer: fine
-  ) {
-
+  @media (hover: hover) and (pointer: fine) {
     .skill-card:hover {
-      transform:
-        translateY(-4px);
+      transform: translateY(-4px);
 
-      border-color:
-        #bfdbfe;
+      border-color: #bfdbfe;
 
-      box-shadow:
-        0 14px 34px
-        rgb(15 23 42 / 0.08);
+      box-shadow: 0 14px 34px rgb(15 23 42 / 0.08);
     }
-
   }
 
-  @media (
-    prefers-reduced-motion:
-    reduce
-  ) {
-
+  @media (prefers-reduced-motion: reduce) {
     .skill-card {
       transition: none;
     }
@@ -205,6 +152,22 @@ const {
     .skill-card:hover {
       transform: none;
     }
+  }
 
+  @media (max-width: 420px) {
+    .skill-card {
+      padding: 1.5rem;
+    }
+
+    .skill-card-header {
+      gap: 0.85rem;
+    }
+
+    .skill-icon {
+      width: 48px;
+      height: 48px;
+
+      flex-basis: 48px;
+    }
   }
 </style>

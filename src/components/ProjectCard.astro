@@ -151,7 +151,7 @@ const { project } = Astro.props;
   }
 
   .project-links a {
-    min-height: 42px;
+    min-height: 44px;
 
     padding: 0.6rem 0.85rem;
 
@@ -198,4 +198,22 @@ const { project } = Astro.props;
       border-color: var(--color-primary);
     }
   }
+
+  @media (max-width: 420px) {
+  .project-card {
+    padding: 1.5rem;
+
+    gap: 1.5rem;
+  }
+
+  .project-links {
+    flex-direction: column;
+  }
+
+  .project-links a {
+    width: 100%;
+
+    justify-content: center;
+  }
+}
 </style>

@@ -36,8 +36,21 @@ import { education } from "../data/education";
   .education-grid {
     display: grid;
 
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(
+        min(260px, 100%),
+        1fr
+      ));
 
     gap: 1.5rem;
   }
+
+  @media (max-width: 420px) {
+  .education-card {
+    padding: 1.5rem;
+  }
+
+  .education-card-header {
+    margin-bottom: 1.5rem;
+  }
+}
 </style>
